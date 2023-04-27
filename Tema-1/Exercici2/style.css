@@ -75,3 +75,8 @@ body{
             background: #1f6cb0;
             width: 100%;
         }
+@media all and (max-width: 800px){
+    .section{
+        flex-direction: column;
+    }
+}
