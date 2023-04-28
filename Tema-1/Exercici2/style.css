@@ -23,20 +23,20 @@ body{
             align-items: center;
         }
             .index{
-                background: #FF6000;
+                background: #ea5455;
                 flex: 1 1 auto;
             }
             .options{
-                background: #FF6000;
+                background: #ea5455;
                 flex: 5 1 auto;
             }
             .contact{
-                background: #FF6000;
+                background: #ea5455;
                 flex: 1 1 auto;
             }
         .main-text{
             flex: 1 1 auto;
-            background: #FFA559;
+            background: #F07b3f;
         }
         h1{
             background: #FFd460;
@@ -72,7 +72,7 @@ body{
         justify-content: center;
     }
         .foot{
-            background: #1f6cb0;
+            background: #e6af2e;
             width: 100%;
         }
 @media all and (max-width: 800px){
