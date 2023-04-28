@@ -22,15 +22,15 @@ body{
             flex-flow: row nowrap;
             align-items: center;
         }
-            .inicio{
+            .index{
                 background: #FF6000;
                 flex: 1 1 auto;
             }
-            .opciones{
+            .options{
                 background: #FF6000;
                 flex: 5 1 auto;
             }
-            .contacto{
+            .contact{
                 background: #FF6000;
                 flex: 1 1 auto;
             }
@@ -45,13 +45,13 @@ body{
         background: #000;
         display: flex;
     }
-    .articles{
+    .products{
         background: #4e4e6a;
         display: flex;
         flex-flow: row wrap;
         flex: 2 1 auto;
     }
-    .article{
+    .product{
         background: #1f6cb0;
         flex: 1 1 40%;
     }
