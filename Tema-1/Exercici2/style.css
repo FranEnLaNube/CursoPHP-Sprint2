@@ -52,7 +52,7 @@ h1 {
 }
 
 .section {
-    background: yellow;
+    background: #000;
     display: flex;
 }
 
@@ -96,5 +96,6 @@ h1 {
 @media all and (max-width: 768px) {
     .section {
         flex-direction: column;
+        background: yellow;
     }
 }
