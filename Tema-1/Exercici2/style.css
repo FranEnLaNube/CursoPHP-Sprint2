@@ -1,82 +1,100 @@
-*{
+* {
     margin: 10px;
     padding: 10px;
 }
-body{
+
+body {
     box-sizing: border-box;
-    max-width:1200px;
+    max-width: 1200px;
     margin: 0 auto;
 }
-.father{
+
+.father {
     display: flex;
     flex-flow: column nowrap;
 }
-    .header{
-        background: #000;
-        display: flex;
-        flex-flow: column nowrap;
-    }
-        .menu{
-            background: #454545;
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-        }
-            .index{
-                background: #ea5455;
-                flex: 1 1 auto;
-            }
-            .options{
-                background: #ea5455;
-                flex: 5 1 auto;
-            }
-            .contact{
-                background: #ea5455;
-                flex: 1 1 auto;
-            }
-        .main-text{
-            flex: 1 1 auto;
-            background: #F07b3f;
-        }
-        h1{
-            background: #FFd460;
-        }
-    .section{
-        background: #000;
-        display: flex;
-    }
-    .products{
-        background: #4e4e6a;
-        display: flex;
-        flex-flow: row wrap;
-        flex: 2 1 auto;
-    }
-    .product{
-        background: #1f6cb0;
-        flex: 1 1 40%;
-    }
-    .navegation{
-        background: #70a3c4;
-        flex: 1 1 100%;
-    }
-    .aside{
-        background: #f73f52;
-        flex: 1 1 auto;
-    }
-        .adver{
-            background: #FFea85;
-        }
-    .footer{
-        background: #000;
-        display: flex;
-        justify-content: center;
-    }
-        .foot{
-            background: #e6af2e;
-            width: 100%;
-        }
-@media all and (max-width: 800px){
-    .section{
+
+.header {
+    background: #000;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.menu {
+    background: #454545;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.index {
+    background: #ea5455;
+    flex: 1 1 auto;
+}
+
+.options {
+    background: #ea5455;
+    flex: 5 1 auto;
+}
+
+.contact {
+    background: #ea5455;
+    flex: 1 1 auto;
+}
+
+.main-text {
+    flex: 1 1 auto;
+    background: #F07b3f;
+}
+
+h1 {
+    background: #FFd460;
+}
+
+.section {
+    background: yellow;
+    display: flex;
+}
+
+.products {
+    background: #4e4e6a;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 2 1 auto;
+}
+
+.product {
+    background: #1f6cb0;
+    flex: 1 1 40%;
+}
+
+.navegation {
+    background: #70a3c4;
+    flex: 1 1 100%;
+}
+
+.aside {
+    background: #f73f52;
+    flex: 1 1 auto;
+}
+
+.adver {
+    background: #FFea85;
+}
+
+.footer {
+    background: #000;
+    display: flex;
+    justify-content: center;
+}
+
+.foot {
+    background: #e6af2e;
+    width: 100%;
+}
+
+@media all and (max-width: 768px) {
+    .section {
         flex-direction: column;
     }
 }
