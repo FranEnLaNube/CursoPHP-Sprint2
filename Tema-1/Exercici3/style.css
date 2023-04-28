@@ -99,36 +99,33 @@ h1 {
         background: yellow;
     }
 }
+
 @media all and (max-width: 425px) {
-    .menu{
+    .menu {
         flex-direction: column;
         height: auto;
-    }.index {
-        background: #ea5455;
-        flex: 1 1 auto;
+        justify-content: center;
     }
     
-    .options {
+    .index, .options, .contact {
         background: #ea5455;
-        flex: 5 1 auto;
-    }
-    
-    .contact {
-        background: #ea5455;
-        flex: 1 1 auto;
+        width: 80%;
     }
 
     .section {
         flex-direction: column;
         background: #E7B10A;
     }
-    .products{
+
+    .products {
         background: #0F4C75;
     }
-    .product{
+
+    .product {
         background: #0C7B93;
     }
-    .aside{
+
+    .aside {
         background: #F07b3f;
     }
 }
