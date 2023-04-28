@@ -99,3 +99,18 @@ h1 {
         background: yellow;
     }
 }
+@media all and (max-width: 425px) {
+    .section {
+        flex-direction: column;
+        background: #E7B10A;
+    }
+    .aside{
+        background: #F07b3f;
+    }
+    .products{
+        background: #0F4C75;
+    }
+    .product{
+        background: #0C7B93;
+    }
+}
