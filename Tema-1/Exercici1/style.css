@@ -22,21 +22,21 @@ body{
             flex-flow: row nowrap;
             align-items: center;
         }
-            .inicio{
-                background: #FF6000;
+            .index{
+                background: #ea5455;
                 flex: 1 1 auto;
             }
-            .opciones{
-                background: #FF6000;
+            .options{
+                background: #ea5455;
                 flex: 5 1 auto;
             }
-            .contacto{
-                background: #FF6000;
+            .contact{
+                background: #ea5455;
                 flex: 1 1 auto;
             }
         .main-text{
             flex: 1 1 auto;
-            background: #FFA559;
+            background: #F07b3f;
         }
         h1{
             background: #FFd460;
@@ -45,13 +45,13 @@ body{
         background: #000;
         display: flex;
     }
-    .articles{
+    .products{
         background: #4e4e6a;
         display: flex;
         flex-flow: row wrap;
         flex: 2 1 auto;
     }
-    .article{
+    .product{
         background: #1f6cb0;
         flex: 1 1 40%;
     }
@@ -72,11 +72,6 @@ body{
         justify-content: center;
     }
         .foot{
-            background: #1f6cb0;
+            background: #e6af2e;
             width: 100%;
         }
-@media all and (max-width: 800px){
-    .section{
-        flex-direction: column;
-    }
-}
