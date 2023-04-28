@@ -103,18 +103,32 @@ h1 {
     .menu{
         flex-direction: column;
         height: auto;
+    }.index {
+        background: #ea5455;
+        flex: 1 1 auto;
     }
+    
+    .options {
+        background: #ea5455;
+        flex: 5 1 auto;
+    }
+    
+    .contact {
+        background: #ea5455;
+        flex: 1 1 auto;
+    }
+
     .section {
         flex-direction: column;
         background: #E7B10A;
     }
-}
-.products{
-    background: #0F4C75;
-}
-.product{
-    background: #0C7B93;
-}
-.aside{
-    background: #F07b3f;
+    .products{
+        background: #0F4C75;
+    }
+    .product{
+        background: #0C7B93;
+    }
+    .aside{
+        background: #F07b3f;
+    }
 }
