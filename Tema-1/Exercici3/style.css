@@ -23,8 +23,6 @@ body {
     .menu {
         background: #454545;
         display: flex;
-        /* flex-flow: row nowrap; */
-        /* align-items: center; */
     }
 
         .index {
@@ -43,7 +41,6 @@ body {
         }
 
 .main-text {
-    /*  flex: 1 1 auto; */
     background: #F07b3f;
     display: flex;
 }
@@ -61,7 +58,7 @@ body {
     .products {
         background: #4e4e6a;
         display: flex;
-        flex-flow: /* row */ wrap;
+        flex-flow: wrap;
         flex: 2 1 auto;
     }
 
@@ -87,7 +84,6 @@ body {
 .footer {
     background: #000;
     display: flex;
-    /* justify-content: center; */
 }
 
     .foot {
@@ -105,12 +101,7 @@ body {
 @media all and (max-width: 430px) {
     .menu {
         flex-direction: column;
-    }/* 
-    .index,
-    .options,
-    .contact {
-        width: 80%;
-    } */
+    }
 
     .section {
         flex-direction: column;
