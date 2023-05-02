@@ -102,8 +102,7 @@ h1 {
 
 @media all and (max-width: 425px) {
     .menu {
-        flex-direction: column;
-        
+        flex-direction: column;        
     }
     
     .index, .options, .contact {
