@@ -85,7 +85,7 @@ body {
 .footer {
     background: #000;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
     .foot {
