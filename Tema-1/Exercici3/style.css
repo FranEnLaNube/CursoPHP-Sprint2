@@ -59,7 +59,7 @@ body {
     .products {
         background: #4e4e6a;
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: /* row */ wrap;
         flex: 2 1 auto;
     }
 
