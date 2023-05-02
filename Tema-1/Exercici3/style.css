@@ -67,7 +67,7 @@ body {
 
         .product {
             background: #1f6cb0;
-            flex: 1 1 45%;
+            flex: 1 1 39%;
         }
 
         .navegation {
@@ -102,7 +102,7 @@ body {
     }
 }
 
-@media all and (max-width: 425px) {
+/* @media all and (max-width: 425px) {
     .menu {
         flex-direction: column;
     }
@@ -130,4 +130,4 @@ body {
     .aside {
         background: #F07b3f;
     }
-}
+} */
