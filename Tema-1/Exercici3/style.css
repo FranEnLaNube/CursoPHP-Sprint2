@@ -24,7 +24,7 @@ body {
         background: #454545;
         display: flex;
         /* flex-flow: row nowrap; */
-        align-items: center;
+        /* align-items: center; */
     }
 
         .index {
