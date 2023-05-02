@@ -45,10 +45,12 @@ body {
 .main-text {
     /*  flex: 1 1 auto; */
     background: #F07b3f;
+    display: flex;
 }
 
     .first-h1 {
         background: #FFd460;
+        width: 100%;
     }
 
 .section {
