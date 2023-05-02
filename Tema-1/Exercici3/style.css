@@ -23,7 +23,7 @@ body {
     .menu {
         background: #454545;
         display: flex;
-        flex-flow: row nowrap;
+        /* flex-flow: row nowrap; */
         align-items: center;
     }
 
@@ -93,7 +93,7 @@ body {
         width: 100%;
     }
  
-@media all and (max-width: 768px) {
+/* @media all and (max-width: 768px) {
     .section {
         flex-direction: column;
         background: yellow;
@@ -128,4 +128,4 @@ body {
     .aside {
         background: #F07b3f;
     }
-}
+} */
