@@ -105,13 +105,13 @@ body {
 @media all and (max-width: 430px) {
     .menu {
         flex-direction: column;
-    }
+    }/* 
 
     .index,
     .options,
     .contact {
         width: 80%;
-    }
+    } */
 
     .section {
         flex-direction: column;
