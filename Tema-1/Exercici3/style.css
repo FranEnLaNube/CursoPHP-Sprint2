@@ -104,7 +104,7 @@ h1 {
     .menu {
         flex-direction: column;
         height: auto;
-        justify-content: center;
+        
     }
     
     .index, .options, .contact {
