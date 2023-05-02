@@ -102,7 +102,7 @@ body {
     }
 }
 
-@media all and (max-width: 425px) {
+@media all and (max-width: 430px) {
     .menu {
         flex-direction: column;
     }
