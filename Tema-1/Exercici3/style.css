@@ -108,19 +108,19 @@ body {
         background: #FFED00;
     }
 
-    .products {
-        background: #0F4C75;
-    }
-
-    .product {
-        background: #0C7B93;
-    }
-
-    .navegation {
-            background: #70a3c4;
+        .products {
+            background: #0F4C75;
         }
-        
-    .aside {
-        background: #F07b3f;
-    }
+
+            .product {
+                background: #0C7B93;
+            }
+
+        .navegation {
+                background: #70a3c4;
+            }
+            
+        .aside {
+            background: #F07b3f;
+        }
 }
