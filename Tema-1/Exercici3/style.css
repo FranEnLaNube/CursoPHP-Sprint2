@@ -101,6 +101,7 @@ body {
 @media all and (max-width: 430px) {
     .menu {
         flex-direction: column;
+        background: #2D4059;
     }
 
     .section {
