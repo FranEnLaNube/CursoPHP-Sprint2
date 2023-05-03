@@ -116,10 +116,11 @@ body {
         background: #0C7B93;
     }
 
-    .aside {
-        background: #F07b3f;
-    }
     .navegation {
             background: #70a3c4;
         }
+        
+    .aside {
+        background: #F07b3f;
+    }
 }
