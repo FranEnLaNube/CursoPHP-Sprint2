@@ -21,7 +21,7 @@ body {
 }
 
     .menu {
-        background: #454545;
+        background: #2D4059;
         display: flex;
     }
 
@@ -101,7 +101,6 @@ body {
 @media all and (max-width: 430px) {
     .menu {
         flex-direction: column;
-        background: #2D4059;
     }
 
     .section {
@@ -122,6 +121,9 @@ body {
             }
             
         .aside {
-            background: #F07b3f;
+            background: #FD7B54;
         }
+            .adver{
+                background: #FDB36B;
+            }        
 }
