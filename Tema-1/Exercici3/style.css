@@ -105,19 +105,19 @@ body {
 
     .section {
         flex-direction: column;
-        background: #FFED00;
+        background: #FEE228;
     }
 
         .products {
-            background: #0F4C75;
+            background: #09506F;
         }
 
             .product {
-                background: #09506F;
+                background: #62959C;
             }
 
         .navegation {
-                background: #70a3c4;
+                background: #A3DDCB;
             }
             
         .aside {
