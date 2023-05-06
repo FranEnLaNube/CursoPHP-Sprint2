@@ -20,6 +20,8 @@ Per a totes les variables (X, Y, N, M):
 <li>Crea una funció <strong>Calculadora</strong> que entri dos nombres per paràmetre, i en un tercer paràmetre et permeti fer la suma, la resta, la multiplicació o la divisió dels dos nombres.</li>
 </ol>
 
+<ul>
+    <li>Operaciones con X e Y</li>
 <?php 
 //Declaring variables
 $X= 1;
@@ -29,5 +31,15 @@ $M= 4.5;
 //Printing X and Y
 echo 'X= '.$X.'<br>';
 echo 'Y= '.$Y.'<br>';
+//Printing operations with X and Y
+echo 'X + Y= '.$X+$Y.'<br>';
+echo 'X - Y= '.$X-$Y.'<br>';
+echo 'X * Y= '.$X*$Y.'<br>';
+echo 'X % Y= '.$X%$Y.'<br>';
+?>
+<li>Operaciones con X e Y</li>
+</ul>
+<?php 
+
 ?>
 </html>
