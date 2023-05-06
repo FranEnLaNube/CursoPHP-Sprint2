@@ -59,5 +59,9 @@ echo 'M * 2= '.($M * 2).'<br>';
 <?php 
 echo 'X + Y + N + M = '.($X+$Y+$N+$M).'<br>';
     ?>
+    <li>El producto de todas las variables:</li>
+<?php 
+echo 'X x Y x N x M = '.($X*$Y*$N*$M).'<br>';
+    ?>
 </ul>
 </html>
