@@ -4,6 +4,8 @@ Defineix una variable de cada tipus: integer, double, string i boolean. Imprimei
 
 Després crea una constant que inclogui el teu nom i mostra-ho en format títol per pantalla. */
 
+//Definiendo variables
+
 //integer
 $intVar = 5;
 //double
@@ -13,8 +15,15 @@ $StringVar = 'MyString';
 //boolean
 $booleanVar = true;
 
+//Imprimiendo
+
 echo $intVar ."<br>";
 echo $doubleVar ."<br>";
 echo $StringVar ."<br>";
 echo $booleanVar ."<br>";
+
+//Creando constante
+
+define('NAME', 'Francisco');
+echo NAME;
 ?>
