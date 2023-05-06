@@ -21,9 +21,14 @@
 </section>
 <div>
     <?php 
+    //Creating and printing $hi
     $hi = 'Hello, World!';
     echo $hi;
+    
+    //Convert to uppercase
+    $HI = strtoupper($hi);
+    echo "<br> To uppercase: ".$HI."<br>";
     ?>
 </div>
 </body>
-</html> 
+</html>
