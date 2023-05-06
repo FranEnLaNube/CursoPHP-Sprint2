@@ -37,9 +37,16 @@ echo 'X - Y= '.$X-$Y.'<br>';
 echo 'X * Y= '.$X*$Y.'<br>';
 echo 'X % Y= '.$X%$Y.'<br>';
 ?>
-<li>Operaciones con X e Y</li>
-</ul>
+<li>Operaciones con N y M</li>
 <?php 
-
+//Printing X and Y
+echo 'N= '.$N.'<br>';
+echo 'M= '.$M.'<br>';
+//Printing operations with X and Y
+echo 'N + M= '.$N+$M.'<br>';
+echo 'N - M= '.$N-$M.'<br>';
+echo 'N * M= '.$N*$M.'<br>';
+echo 'N % M= '.$N%$M.'<br>';
 ?>
+</ul>
 </html>
