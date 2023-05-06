@@ -29,9 +29,9 @@
     $HI = strtoupper($hi);
     echo "<br> To uppercase: ".$HI."<br>";
     //Getting $hi's Lenght
-    echo 'Lenght of $hi: '.strlen($hi);
+    echo 'Lenght of $hi: '.strlen($hi)."<br>";
     //Printing reversed
-    echo 'reverse of $hi: '.strrev($hi);
+    echo 'reverse of $hi: '.strrev($hi)."<br>";
     //Creating new presentation, $pres, variable
     $pres='Aquest és el curs de  PHP';
 
