@@ -55,5 +55,9 @@ echo 'Y * 2 = '.($Y * 2).'<br>';
 echo 'N * 2 = '.($N * 2).'<br>';
 echo 'M * 2= '.($M * 2).'<br>';
 ?>
+<li>La suma de todas las variables:</li>
+<?php 
+echo 'X + Y + N + M = '.($X+$Y+$N+$M).'<br>';
+    ?>
 </ul>
 </html>
