@@ -17,10 +17,10 @@ $booleanVar = true;
 
 //Imprimiendo
 
-echo $intVar ."<br>";
-echo $doubleVar ."<br>";
-echo $StringVar ."<br>";
-echo $booleanVar ."<br>";
+echo 'integer: '.$intVar ."<br>";
+echo 'float: '.$doubleVar ."<br>";
+echo 'String: '.$StringVar ."<br>";
+echo 'boolean: '.$booleanVar ."<br>";
 
 //Creando constante
 
