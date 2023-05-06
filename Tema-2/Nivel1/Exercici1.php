@@ -13,4 +13,8 @@ $StringVar = 'MyString';
 //boolean
 $booleanVar = true;
 
+echo $intVar ."<br>";
+echo $doubleVar ."<br>";
+echo $StringVar ."<br>";
+echo $booleanVar ."<br>";
 ?>
