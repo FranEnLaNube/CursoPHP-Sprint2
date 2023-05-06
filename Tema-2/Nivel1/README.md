@@ -40,11 +40,11 @@ El producte de totes les variables.
 - b Crea una funció **Calculadora** que entri dos nombres per paràmetre, i en un tercer paràmetre et permeti fer la suma, la resta, la multiplicació o la divisió dels dos nombres.
 
 
-- Exercici 4
+## - Exercici 4
 Fes un programa que implementi una funció on es compti fins a un nombre determinat. Si no s’inclou un nombre determinat, el nombre haurà de tenir un valor per defecte igual a 10. A més, aquesta funció ha de tenir un segon paràmetre que indiqui de quant a quant es compta(D'1 en 1, de 2 en 2…). El compte s’ha de mostrar per pantalla pas per pas.
 
 
-- Exercici 5
+## - Exercici 5
 Escriure una funció per verificar el grau d'un/a estudiant d'acord amb la nota.
 
 Condicions:
@@ -54,11 +54,11 @@ Si la nota està entre 45% i 59%, el grau hauria de ser Segona Divisió.
 Si la nota està entre 33% to 44%, el grau hauria de ser Tercera Divisió.
 Si la nota és menor a 33%, l'estudiant reprovarà.
 
-- Exercici 6
+## - Exercici 6
 Charlie em va mossegar el dit! Charlie et mossegarà el dit exactament el 50% del temps.
 
 Escriu La funció isBitten () que retorna TRUE amb un 50% de probabilitat i FALSE en cas contrari.
 
- **Important**
+**Important**
 
 Consell: pot ser que la funció rand () et resulti útil.
