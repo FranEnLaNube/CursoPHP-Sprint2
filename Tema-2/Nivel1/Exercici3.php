@@ -19,4 +19,12 @@ Per a totes les variables (X, Y, N, M):
 </ul>
 <li>Crea una funció Calculadora que entri dos nombres per paràmetre, i en un tercer paràmetre et permeti fer la suma, la resta, la multiplicació o la divisió dels dos nombres.</li>
 </ol>
+
+<?php 
+//Declaring variables
+$X= 1;
+$Y= 2;
+$N= 3.4;
+$M= 4.5;
+?>
 </html>
