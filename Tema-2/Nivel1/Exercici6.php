@@ -7,4 +7,11 @@
 <h3>Important</h3>
 <p><strong>Consell:</strong> pot ser que la funció rand () et resulti útil.</p>
 <h3>Resolució:</h3>
-<?php
+<?php 
+function isBitten()
+{
+    return (bool)rand(0,1);
+}
+echo isBitten() ? 'TRUE': 'FALSE';
+
+?>
