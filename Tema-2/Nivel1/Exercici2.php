@@ -34,6 +34,8 @@
     echo 'reverse of $hi: '.strrev($hi)."<br>";
     //Creating new presentation, $pres, variable
     $pres='Aquest és el curs de  PHP';
+    //Concatenating Strings
+    echo $hi.$pres;
 
     ?>
 </div>
