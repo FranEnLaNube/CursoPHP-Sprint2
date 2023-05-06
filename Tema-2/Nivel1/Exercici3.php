@@ -1,7 +1,7 @@
 <html>
 
 <ol> 
-<li>Declara dues variables X i Y de tipus int, dues variables N i M de tipus double i assigna a cadascuna un valor. A continuació, mostra per pantalla per a X i Y:</li>
+<li>Declara dues variables <strong>X i Y</strong> de tipus int, dues variables <strong>N i M</strong> de tipus double i assigna a cadascuna un valor. A continuació, mostra per pantalla per a </strong>X i Y</strong>:</li>
 <ul>
 
 <li>El valor de cada variable.</li>
@@ -9,7 +9,7 @@
 <li>La resta.</li>
 <li>El producte.</li>
 <li>El mòdul.</li>
-<li>Per N i M realitzaràs el mateix.</ul>
+<li>Per <strong>N i M</strong> realitzaràs el mateix.</ul>
 
 Per a totes les variables (X, Y, N, M):
 <ul>
@@ -17,7 +17,7 @@ Per a totes les variables (X, Y, N, M):
 <li>La suma de totes les variables.</li>
 <li>El producte de totes les variables.</li>
 </ul>
-<li>Crea una funció Calculadora que entri dos nombres per paràmetre, i en un tercer paràmetre et permeti fer la suma, la resta, la multiplicació o la divisió dels dos nombres.</li>
+<li>Crea una funció <strong>Calculadora</strong> que entri dos nombres per paràmetre, i en un tercer paràmetre et permeti fer la suma, la resta, la multiplicació o la divisió dels dos nombres.</li>
 </ol>
 
 <?php 
