@@ -48,5 +48,12 @@ echo 'N - M= '.$N-$M.'<br>';
 echo 'N * M= '.$N*$M.'<br>';
 echo 'N % M= '.$N%$M.'<br>';
 ?>
+<li>El doble de cada variable</li>
+<?php 
+echo 'X * 2 = '.($X * 2).'<br>';
+echo 'Y * 2 = '.($Y * 2).'<br>';
+echo 'N * 2 = '.($N * 2).'<br>';
+echo 'M * 2= '.($M * 2).'<br>';
+?>
 </ul>
 </html>
