@@ -19,6 +19,11 @@
     <li>Crea una nova variable amb el contingut <strong>“Aquest és el curs de PHP”</strong> i imprimeix per pantalla la concatenació de tots dos strings.</li>
     </ul>
 </section>
-
+<div>
+    <?php 
+    $hi = 'Hello, World!';
+    echo $hi;
+    ?>
+</div>
 </body>
 </html> 
