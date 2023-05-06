@@ -25,5 +25,9 @@ echo $booleanVar ."<br>";
 //Creando constante
 
 define('NAME', 'Francisco');
-echo NAME;
+
+//Imprimiendo NAME en formato título
+
+echo "<h1>".NAME."</h1>";
+
 ?>
