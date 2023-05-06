@@ -32,6 +32,9 @@
     echo 'Lenght of $hi: '.strlen($hi);
     //Printing reversed
     echo 'reverse of $hi: '.strrev($hi);
+    //Creating new presentation, $pres, variable
+    $pres='Aquest és el curs de  PHP';
+
     ?>
 </div>
 </body>
