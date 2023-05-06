@@ -30,6 +30,8 @@
     echo "<br> To uppercase: ".$HI."<br>";
     //Getting $hi's Lenght
     echo 'Lenght of $hi: '.strlen($hi);
+    //Printing reversed
+    echo 'reverse of $hi: '.strrev($hi);
     ?>
 </div>
 </body>
