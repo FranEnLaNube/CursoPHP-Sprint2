@@ -26,5 +26,8 @@ $X= 1;
 $Y= 2;
 $N= 3.4;
 $M= 4.5;
+//Printing N and M
+echo 'N= '.$N.'<br>';
+echo 'M= '.$M.'<br>';
 ?>
 </html>
