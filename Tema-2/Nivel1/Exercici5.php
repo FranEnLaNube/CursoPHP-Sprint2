@@ -8,5 +8,25 @@
     <li>Si la nota està entre 33% to 44%, el grau hauria de ser Tercera Divisió.</li>
     <li>Si la nota és menor a 33%, l'estudiant reprovarà.</li>
 </ul>
+<h3>Resolució:</h3>
+<?php
+function classifier($mark)
+{
+    if ($mark >= 0 && $mark <= 100) {
+        if ($mark >= 60) {
+            echo 'Primera Divisió';
+        } elseif ($mark >= 45) {
+            echo 'Segona Divisió';
+        } elseif ($mark >= 33) {
+            return 'Tercera Divisió';
+        } else {
+            echo 'Suspenet';
+        }
+    } else {
+        echo 'nota no vàlida';
+    }
+}
+classifier(120)
+?>
 
 </html>
