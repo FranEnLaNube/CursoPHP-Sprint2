@@ -6,4 +6,6 @@ $newX = [];
 foreach ($X as $key => $value) {
     $newX[] = $value;
 }
+echo '<br>';
+echo count($newX);
 ?>
