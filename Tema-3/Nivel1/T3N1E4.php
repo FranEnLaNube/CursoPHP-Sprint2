@@ -13,3 +13,4 @@ $yo = [
     'e-mail' => 'ciscoSolana@gmail.com',
     'Menjar favorit' => 'Pan de chicharrones'
 ];
+print_r($yo);
