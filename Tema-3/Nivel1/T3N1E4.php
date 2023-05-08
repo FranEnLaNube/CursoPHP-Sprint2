@@ -7,10 +7,12 @@ edat
 email
 menjar favorit 
 */
+//Creating associative array
 $yo = [
     'nom' => 'Francisco',
     'Edat' => 34,
     'e-mail' => 'ciscoSolana@gmail.com',
     'Menjar favorit' => 'Pan de chicharrones'
 ];
+//Printing array $yo datails
 print_r($yo);
