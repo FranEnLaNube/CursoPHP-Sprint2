@@ -17,3 +17,6 @@ class Employee
         return ($wage <= 6000 ? " no" : '');
     }
 }
+//Object instance 
+$emp1 = new Employee;
+$emp1->initialize('Carlos', '7000');
