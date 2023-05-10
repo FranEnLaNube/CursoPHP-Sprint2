@@ -9,6 +9,7 @@ abstract class Shape
         $this->height = $height;
         $this->width = $width;
     }
+    //Getters to get values from main
     public function getHeight(){
         return $this->height;
     }
