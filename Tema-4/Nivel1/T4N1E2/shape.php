@@ -7,7 +7,7 @@ abstract class Shape
     function __construct($height, $width)
     {
         $this->height = $height;
-        $this->$width = $width;
+        $this->width = $width;
     }
     //abstract function to get area in inherited classes
     abstract protected function area();
