@@ -10,5 +10,5 @@ abstract class Shape
         $this->$width = $width;
     }
     //abstract function to get area in inherited classes
-    abstract protected function area($height, $width);
+    abstract protected function area();
 }
