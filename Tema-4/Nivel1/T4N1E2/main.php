@@ -7,5 +7,8 @@
 require 'rectangle.php';
 $myRectangle = new Rectangle(5,4);
 echo $myRectangle->area();
+require 'triangle.php';
+$myTriangle = new Triangle(67,43);
+echo $myTriangle->area();
 ?>
 </html>
