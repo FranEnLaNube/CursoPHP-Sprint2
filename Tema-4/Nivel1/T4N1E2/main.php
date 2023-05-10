@@ -6,6 +6,5 @@
 <?php 
 require 'rectangle.php';
 $myRectangle = new Rectangle(5,4);
-echo $myRectangle->area();
 ?>
 </html>
