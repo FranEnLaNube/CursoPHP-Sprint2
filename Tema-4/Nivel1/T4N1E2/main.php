@@ -8,13 +8,14 @@
 require 'rectangle.php';
 //Creating object rectangle with its own meassures
 $myRectangle = new Rectangle(5,4);
-//Printing rectangle's area
-echo $myRectangle->area();
 //Calling rectangle to get its class
 require 'triangle.php';
 //Creating object triangle with its own meassures
 $myTriangle = new Triangle(67,43);
+//Printing rectangle's area
+echo 'El area del rectángulo con '.$myRectangle->getHeight().' de alto y '.$myRectangle->getWidth().' de ancho es: '.$myRectangle->area();
+echo "<br>";
 //Printing triangle's area
-echo $myTriangle->area();
+echo 'El area del triángulo con '.$myTriangle->getHeight().' de alto y '.$myTriangle->getWidth().' de ancho es: '.$myTriangle->area();
 ?>
 </html>
