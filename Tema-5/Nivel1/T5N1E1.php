@@ -5,9 +5,18 @@
 </p>
 <?php interface Animal
 {
-    public $name;
     public function makeSound();
 }
+class Gos implements Animal {
+    public $name;
+    public function makeSound(){
+        echo "Bup, bup!";
+    }
+}
+class Gat implements Animal {
+    public $name;
+    public function makeSound(){
+        echo "Mèu";
+    }
 ?>
-
 </html>
