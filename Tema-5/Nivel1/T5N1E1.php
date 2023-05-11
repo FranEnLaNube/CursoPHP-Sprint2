@@ -26,6 +26,10 @@ class Gat implements Animal {
         echo "Mèu";
     }
 }
+//initialize object garfield from the class Gat
+$garfield = new Gat;
+
+
 ?>
 </body>
 </html>
