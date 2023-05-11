@@ -28,6 +28,8 @@ class Gat implements Animal {
 }
 //initialize object garfield from the class Gat
 $garfield = new Gat;
+//Setting $name to $garfield
+$garfield->name = "Garfield";
 
 
 ?>
