@@ -30,8 +30,8 @@ class Gat implements Animal {
 $garfield = new Gat;
 //Setting $name to $garfield
 $garfield->name = "Garfield";
-
-
+//Printing Garfield's greeting
+echo "Hola sóc el gat ".$garfield->name.' y faig '.$garfield->makeSound();
 ?>
 </body>
 </html>
