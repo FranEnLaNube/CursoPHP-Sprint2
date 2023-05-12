@@ -1,6 +1,7 @@
 # CursoPHP-Sprint1
 ### Exercises of the first sprint in the FS-PHP course at the IT-Academy-Cibernarium, Barcelona.
 
+- 12/5 Entregado ejercicio 1 del nivel 1 de Tema-5. Esperando correción..
 - 11/5 Trabajando en Tema-5.
 - 10/5 Entregado Tema-4. Esperando correción..
 - 9/5 Aprobadas las entregas. Trabajando en Tema-4
