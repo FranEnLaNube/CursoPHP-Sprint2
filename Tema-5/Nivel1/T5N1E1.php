@@ -10,7 +10,7 @@
 interface Animal
 {
     //makeSound methode empty and public
-    public function makeSound();
+    function makeSound();
 }
 //Class Gos who implements Animal to use makeSound in it.
 class Gos implements Animal {
