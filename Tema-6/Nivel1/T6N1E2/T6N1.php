@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +12,8 @@
     <title>Salida Formulario - Ejercicio 1, Nivel 1, Tema 6, Sprint 1, PHP</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>Formulario completado</h1>
-    <p>Hola <?php echo $_POST['name']?>, elegiste <?php echo $_POST['language']?>!, Suerte con eso...</p>
+    <p>Hola <?php echo $_POST['name'] ?>, elegiste <?php echo $_POST['language'] ?>!, Suerte con eso...</p>
 </body>
