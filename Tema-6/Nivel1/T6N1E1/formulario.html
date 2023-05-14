@@ -8,8 +8,16 @@
 </head>
 <body>
     <h2>Formulario</h2>
-    <form id="formulario" action="T6N1.php" method="post"></form>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" placeholder="Cosme Fulanito">
+    <form id="form" action="T6N1.php" method="post"></form>
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" required placeholder="Cosme Fulanito">
+    <h3>Un selector tramposo:</h3>
+    <p>Elegí tu lenguaje de programación preferido</p>
+    <input type="radio" id="html" name="html" value="html">
+    <label for="php">HTML</label><br>
+    <input type="radio" id="java" name="java" value="java">
+    <label for="php">JAVA</label><br>
+    <input type="radio" id="php" name="php" value="php">
+    <label for="php">PHP</label><br>
 </body>
 </html>
