@@ -1,6 +1,14 @@
 <?php
 // Start the session
 session_start();
+// Bringing $name value
+$name = $_POST["name"];
+$_SESSION["username"] = $name;
+$username = $_SESSION["username"];
+// Bringing $language value
+$language = $_POST["language"];
+$_SESSION["choosen_lang"] = $language;
+$choosen_lang = $_SESSION["choosen_lang"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,5 +23,5 @@ session_start();
 
 <body>
     <h1>Formulario completado</h1>
-    <p>Hola <?php echo $_POST['name'] ?>, elegiste <?php echo $_POST['language'] ?>!, Suerte con eso...</p>
+    <p>Hola <?php echo $username?>, elegiste <?php echo $choosen_lang?>!, Suerte con eso...</p>
 </body>
