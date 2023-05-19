@@ -6,9 +6,17 @@ use PHPUnit\Framework\TestCase;
 //Definir la clase de pruebas
 class NumberCheckerTest extends TestCase
 {
+    //Método de prueba para verificar si el número es par
+    public function testIsEven() : void
+        //Creando una instancia de la clase NumberChecker
+        $numberChecker = new NumberChecker(10);
 
-}
+        //Comprobando si el número es par
+        $this->assertTrue($numberChecker->isEven(), 'el número debería ser par');
+
+    }
 ?>
+
 <!-- 
 
 Clase original a chequear
