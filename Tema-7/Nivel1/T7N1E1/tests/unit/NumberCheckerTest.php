@@ -1,6 +1,6 @@
 <?php 
 //Archivo que se va a probar
-require 'src/numberChecker.php';
+require 'src/NumberChecker.php';
 //Importando la clase testeadora de PHPUnit
 use PHPUnit\Framework\TestCase;
 //Definir la clase de pruebas
