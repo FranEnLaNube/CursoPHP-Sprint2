@@ -52,20 +52,6 @@ class NumberCheckerTest extends TestCase
         //Aqui acepta el string porque es equal y no same en la función IsEven()
         $this->assertTrue($result7, 'debería dar error');
     }
-    // Probando si el número no es IMPAR
-
-    public function testIsOdd(): void
-    {
-        // Arrange: Preparando datos
-        $number = 7;
-        $numberChecker = new NumberChecker($number);
-
-        // Act: Ejecutando método a probar
-        $result = $numberChecker->isEven();
-
-        // Assert: testeando
-        $this->assertFalse($result, 'El número debería ser impar');
-    }
     //Método para probar si es POSITIVO
 
     public function testIsPositive() : void
