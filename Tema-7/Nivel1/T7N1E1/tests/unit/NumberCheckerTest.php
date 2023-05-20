@@ -11,16 +11,46 @@ class NumberCheckerTest extends TestCase
     public function testIsEven() : void
     {
         // Arrange: Preparación de los datos de prueba
+        //Probando varios valores
+        //Al poner varios tests casos juntos solo te muestra el primer error que encuentra|
+        //y sale de la función
+        $number1 = 10; // Número par
+        $number2 = 11; // Número impar
+        $number3 = 0; // Par
+        $number4 = -8; // Número par negativo
+        $number5 = -13; // Número impar negativo
+        $number6 = 13.5; // Número decimal
+        $number7 = "23"; // String
 
-        //almacenando el resultado de prueba en variable
-        $number = 10;
-        $numberChecker = new NumberChecker($number);
+        //Instanciando
+        $numberChecker1 = new NumberChecker($number1);
+        $numberChecker2 = new NumberChecker($number2);
+        $numberChecker3 = new NumberChecker($number3);
+        $numberChecker4 = new NumberChecker($number4);
+        $numberChecker5 = new NumberChecker($number5);
+        $numberChecker6 = new NumberChecker($number6);
+        $numberChecker7 = new NumberChecker($number7);
         
         // Act: Ejecutando el método a probar
-        $result = $numberChecker->isEven();
+        $result1 = $numberChecker1->isEven();
+        $result2 = $numberChecker2->isEven();
+        $result3 = $numberChecker3->isEven();
+        $result4 = $numberChecker4->isEven();
+        $result5 = $numberChecker5->isEven();
+        $result6 = $numberChecker6->isEven();
+        $result7 = $numberChecker7->isEven();
         
         // Assert: Usando el test
-        $this->assertTrue($result, 'el número debería ser par');
+        $this->assertTrue($result1, 'el número debería ser par');
+        //Aqui es NotTrue porque es impar el dato pasado
+        $this->assertNotTrue($result2, 'el número debería ser impar');
+        $this->assertTrue($result3, 'el número debería ser par');
+        $this->assertTrue($result4, 'el número debería ser par');
+        //Aqui es NotTrue porque es impar el dato pasado
+        $this->assertNotTrue($result5, 'el número debería ser impar');
+        $this->assertTrue($result6, 'el número no debería ser ni par ni impar');
+        //Aqui acepta el string porque es equal y no same en la función IsEven()
+        $this->assertTrue($result7, 'debería dar error');
     }
     // Probando si el número no es IMPAR
 
