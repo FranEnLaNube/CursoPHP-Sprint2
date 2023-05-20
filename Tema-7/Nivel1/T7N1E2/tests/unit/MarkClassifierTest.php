@@ -22,7 +22,7 @@
 //TESTEO
 
 // Importando clase con función a probar
-require 'MarkClassifier.php';
+require 'src/MarkClassifier.php';
 
 //Importando la clase TestCase, testeadora de PHPUnit
 use PHPUnit\Framework\TestCase;
@@ -40,7 +40,7 @@ class MarkClassifierTest extends TestCase
         $output = Classifier($mark);
     
         // Assert: Verificación del resultado esperado
-        $this->assertSame('Nota fora de rang', $output);
+        $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
     }
     // Método de prueba para "Nota >= 60%"
     public function testMarkGreater60()
@@ -52,7 +52,7 @@ class MarkClassifierTest extends TestCase
         $output = Classifier($mark);
 
         // Assert: Verificación del resultado esperado
-        $this->assertSame('Primera Divisió', $output, 'debería dar primera divisió');
+        $this->assertSame('Primera Divisió', $output, 'debería dar "primera divisió"');
     }
     // Método de prueba para "Nota < 60%"
     public function testMarkSmaller60()
@@ -64,7 +64,7 @@ class MarkClassifierTest extends TestCase
         $output = Classifier($mark);
 
         // Assert: Verificación del resultado esperado
-        $this->assertSame('Segona Divisió', $output, 'debería dar segona divisió');
+        $this->assertSame('Segona Divisió', $output, 'debería dar "segona divisió"');
     }
     // Método de prueba para "Nota < 45%"
     public function testMarkSmaller45()
@@ -76,7 +76,7 @@ class MarkClassifierTest extends TestCase
         $output = Classifier($mark);
 
         // Assert: Verificación del resultado esperado
-        $this->assertSame('Tercera Divisió', $output, 'debería dar tercera divisió');
+        $this->assertSame('Tercera Divisió', $output, 'debería dar "tercera divisió"');
     }
     // Método de prueba para "Nota <33%"
     public function testMarkSmaller33()
@@ -88,7 +88,43 @@ class MarkClassifierTest extends TestCase
         $output = Classifier($mark);
 
         // Assert: Verificación del resultado esperado
-        $this->assertSame('Tercera Divisió', $output, 'debería dar tercera divisió');
+        $this->assertSame('Tercera Divisió', $output, 'debería dar "tercera divisió"');
+    }
+    // Método de prueba para "Nota <0%"
+    public function testMarkNegative()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = -2;
+
+        // Act: Usando funcion testeadora
+        $output = Classifier($mark);
+
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
+    }
+    // Método de prueba para "Nota = 0"
+    public function testMarkZero()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = 0;
+
+        // Act: Usando funcion testeadora
+        $output = Classifier($mark);
+
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
+    }
+    // Método de prueba para "entrada de otro tipo"
+    public function testMarkString()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = 'Hi!';
+
+        // Act: Usando funcion testeadora
+        $output = Classifier($mark);
+
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Entrada invàlida', $output, 'Debería dar "Entrada invàlida"');
     }
 
 // Otros métodos de prueba para los casos restantes
