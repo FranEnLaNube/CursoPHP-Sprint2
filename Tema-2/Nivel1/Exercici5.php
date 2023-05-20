@@ -14,19 +14,19 @@ function classifier($mark)
 {
     if ($mark >= 0 && $mark <= 100) {
         if ($mark >= 60) {
-            echo 'Primera Divisió';
+            return 'Primera Divisió';
         } elseif ($mark >= 45) {
-            echo 'Segona Divisió';
+            return 'Segona Divisió';
         } elseif ($mark >= 33) {
             return 'Tercera Divisió';
         } else {
-            echo 'Suspenet';
+            return 'Suspenet';
         }
     } else {
-        echo 'nota no vàlida';
+        return 'nota no vàlida';
     }
 }
-classifier(120)
+echo classifier(-120)
 ?>
 
 </html>
