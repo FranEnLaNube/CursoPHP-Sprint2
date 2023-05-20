@@ -18,5 +18,6 @@ Class MarkClassifier
         }
     }
 }
-/* echo classifier(-120) */
-?>
+/* $mark = 'Hi!';
+echo classifier($mark)
+ */?>
