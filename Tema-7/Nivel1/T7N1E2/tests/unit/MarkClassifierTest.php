@@ -35,9 +35,12 @@ class MarkClassifierTest extends TestCase
     {
         // Arrange: Preparando datos de prueba
         $mark = 170;
+
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
     
         // Act: Usando funcion testeadora
-        $output = Classifier($mark);
+        $output = $classifier->classifier($mark);
     
         // Assert: Verificación del resultado esperado
         $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
@@ -48,8 +51,11 @@ class MarkClassifierTest extends TestCase
         // Arrange: Preparando datos de prueba
         $mark = 70;
 
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
+    
         // Act: Usando funcion testeadora
-        $output = Classifier($mark);
+        $output = $classifier->classifier($mark);
 
         // Assert: Verificación del resultado esperado
         $this->assertSame('Primera Divisió', $output, 'debería dar "primera divisió"');
@@ -60,8 +66,11 @@ class MarkClassifierTest extends TestCase
         // Arrange: Preparando datos de prueba
         $mark = 59;
 
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
+    
         // Act: Usando funcion testeadora
-        $output = Classifier($mark);
+        $output = $classifier->classifier($mark);
 
         // Assert: Verificación del resultado esperado
         $this->assertSame('Segona Divisió', $output, 'debería dar "segona divisió"');
@@ -72,9 +81,12 @@ class MarkClassifierTest extends TestCase
         // Arrange: Preparando datos de prueba
         $mark = 44;
 
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
+    
         // Act: Usando funcion testeadora
-        $output = Classifier($mark);
-
+        $output = $classifier->classifier($mark);
+        
         // Assert: Verificación del resultado esperado
         $this->assertSame('Tercera Divisió', $output, 'debería dar "tercera divisió"');
     }
@@ -84,8 +96,11 @@ class MarkClassifierTest extends TestCase
         // Arrange: Preparando datos de prueba
         $mark = 32;
 
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
+    
         // Act: Usando funcion testeadora
-        $output = Classifier($mark);
+        $output = $classifier->classifier($mark);
 
         // Assert: Verificación del resultado esperado
         $this->assertSame('Suspenet', $output, 'debería dar "Suspenet"');
@@ -96,8 +111,11 @@ class MarkClassifierTest extends TestCase
         // Arrange: Preparando datos de prueba
         $mark = -2;
 
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
+    
         // Act: Usando funcion testeadora
-        $output = Classifier($mark);
+        $output = $classifier->classifier($mark);
 
         // Assert: Verificación del resultado esperado
         $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
@@ -108,8 +126,11 @@ class MarkClassifierTest extends TestCase
         // Arrange: Preparando datos de prueba
         $mark = 0;
 
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
+    
         // Act: Usando funcion testeadora
-        $output = Classifier($mark);
+        $output = $classifier->classifier($mark);
 
         // Assert: Verificación del resultado esperado
         $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
@@ -120,8 +141,11 @@ class MarkClassifierTest extends TestCase
         // Arrange: Preparando datos de prueba
         $mark = 'Hi!';
 
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
+    
         // Act: Usando funcion testeadora
-        $output = Classifier($mark);
+        $output = $classifier->classifier($mark);
 
         // Assert: Verificación del resultado esperado
         $this->assertSame('Entrada invàlida', $output, 'Debería dar "Entrada invàlida"');
