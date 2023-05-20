@@ -11,9 +11,9 @@ class NumberCheckerTest extends TestCase
     public function testIsEven() : void
     {
         // Arrange: Preparación de los datos de prueba
-        //Probando varios valores
-        //Al poner varios tests casos juntos solo te muestra el primer error que encuentra|
-        //y sale de la función
+            //Probando varios valores
+            //Al poner varios tests casos juntos solo te muestra el primer error que encuentra|
+            //y sale de la función
         $number1 = 10; // Número par
         $number2 = 11; // Número impar
         $number3 = 0; // Par
