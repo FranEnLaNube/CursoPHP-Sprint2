@@ -6,7 +6,8 @@ use PHPUnit\Framework\TestCase;
 //Definir la clase de pruebas
 class NumberCheckerTest extends TestCase
 {
-    //Método de prueba para verificar si el número es par
+    //Método de prueba para verificar si el número es PAR
+
     public function testIsEven() : void
     {
         // Arrange: Preparación de los datos de prueba
@@ -21,7 +22,22 @@ class NumberCheckerTest extends TestCase
         // Assert: Usando el test
         $this->assertTrue($result, 'el número debería ser par');
     }
-    //Método para probar si es positivo
+    // Probando si el número no es IMPAR
+
+    public function testIsOdd(): void
+    {
+        // Arrange: Preparando datos
+        $number = 7;
+        $numberChecker = new NumberChecker($number);
+
+        // Act: Ejecutando método a probar
+        $result = $numberChecker->isEven();
+
+        // Assert: testeando
+        $this->assertFalse($result, 'El número debería ser impar');
+    }
+    //Método para probar si es POSITIVO
+
     public function testIsPositive() : void
     {
         // Arrange: Preparación de los datos de prueba
@@ -35,5 +51,21 @@ class NumberCheckerTest extends TestCase
         $this->assertFalse($result, 'el número debería ser negativo');
         //Comprobando si es negativo
     }
+    //Método para probar si es NEGATIVO
+
+    public function testIsNegative() : void
+    {
+        // Arrange: Preparación de los datos de prueba
+        $number = -15;
+        $numberChecker = new NumberChecker($number);
+        
+        // Act: Ejecutando el método a probar
+        $result = $numberChecker->isPositive();
+        
+        // Assert: Usando el test
+        $this->assertTrue($result, 'el número debería ser negativo');
+        //Comprobando si es negativo
+    }
+
 }    
 ?>
