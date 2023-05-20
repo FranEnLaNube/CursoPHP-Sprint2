@@ -3,8 +3,11 @@ Class MarkClassifier
 {
     function classifier($mark)
     {
-        if (is_numeric($mark)) {            
+        //Finding whether a variable is a number or a numeric string
+        if (is_numeric($mark)) {
+            //Validating range
             if ($mark >= 0 && $mark <= 100) {
+                //Classifying
                 if ($mark >= 60) {
                     return 'Primera Divisió';
                 } elseif ($mark >= 45) {
@@ -22,6 +25,8 @@ Class MarkClassifier
         }
     }
 }
-/* $mark = 'Hi!';
-echo classifier($mark)
- */?>
+//Output
+$mark = '-3';
+$classifier = new MarkClassifier($mark);
+echo $classifier->classifier($mark)
+?>
