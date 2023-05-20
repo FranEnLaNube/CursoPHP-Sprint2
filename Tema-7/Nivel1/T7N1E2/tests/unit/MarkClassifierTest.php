@@ -105,6 +105,21 @@ class MarkClassifierTest extends TestCase
         // Assert: Verificación del resultado esperado
         $this->assertSame('Suspenet', $output, 'debería dar "Suspenet"');
     }
+    // Método de prueba para "Nota = 0"
+    public function testMarkZero()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = 0;
+        
+        // Creo una instancia de MarkClassifier
+        $classifier = new MarkClassifier();
+        
+        // Act: Usando funcion testeadora
+        $output = $classifier->classifier($mark);
+        
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
+    }
     // Método de prueba para "Nota <0%"
     public function testMarkNegative()
     {
@@ -113,25 +128,10 @@ class MarkClassifierTest extends TestCase
 
         // Creo una instancia de MarkClassifier
         $classifier = new MarkClassifier();
-    
+        
         // Act: Usando funcion testeadora
         $output = $classifier->classifier($mark);
-
-        // Assert: Verificación del resultado esperado
-        $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
-    }
-    // Método de prueba para "Nota = 0"
-    public function testMarkZero()
-    {
-        // Arrange: Preparando datos de prueba
-        $mark = 0;
-
-        // Creo una instancia de MarkClassifier
-        $classifier = new MarkClassifier();
-    
-        // Act: Usando funcion testeadora
-        $output = $classifier->classifier($mark);
-
+        
         // Assert: Verificación del resultado esperado
         $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
     }
