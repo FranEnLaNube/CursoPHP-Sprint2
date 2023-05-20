@@ -18,5 +18,5 @@ Class MarkClassifier
         }
     }
 }
-echo classifier(-120)
+/* echo classifier(-120) */
 ?>
