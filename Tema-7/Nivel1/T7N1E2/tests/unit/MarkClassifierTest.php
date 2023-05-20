@@ -22,7 +22,7 @@
 //TESTEO
 
 // Importando clase con función a probar
-require 'src/MarkClassifier.php';
+require 'MarkClassifier.php';
 
 //Importando la clase TestCase, testeadora de PHPUnit
 use PHPUnit\Framework\TestCase;
@@ -37,7 +37,7 @@ class MarkClassifierTest extends TestCase
         $mark = 170;
     
         // Act: Usando funcion testeadora
-        $output = testClassifier($mark);
+        $output = Classifier($mark);
     
         // Assert: Verificación del resultado esperado
         $this->assertSame('Nota fora de rang', $output);
@@ -49,7 +49,7 @@ class MarkClassifierTest extends TestCase
         $mark = 70;
 
         // Act: Usando funcion testeadora
-        $output = testClassifier($mark);
+        $output = Classifier($mark);
 
         // Assert: Verificación del resultado esperado
         $this->assertSame('Primera Divisió', $output, 'debería dar primera divisió');
