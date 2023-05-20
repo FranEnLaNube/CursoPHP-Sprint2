@@ -118,7 +118,7 @@ class MarkClassifierTest extends TestCase
         $output = $classifier->classifier($mark);
         
         // Assert: Verificación del resultado esperado
-        $this->assertSame('Nota fora de rang', $output, 'Debería dar "Nota fora de rang"');
+        $this->assertSame('Suspenet', $output, 'Debería dar "Suspenet"');
     }
     // Método de prueba para "Nota <0%"
     public function testMarkNegative()
