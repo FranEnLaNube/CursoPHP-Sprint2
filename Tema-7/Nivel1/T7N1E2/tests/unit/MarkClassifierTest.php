@@ -22,7 +22,7 @@
 //TESTEO
 
 // Importando clase con función a probar
-require 'src/MarkCkassifier.php';
+require 'src/MarkClassifier.php';
 
 //Importando la clase TestCase, testeadora de PHPUnit
 use PHPUnit\Framework\TestCase;
@@ -30,18 +30,66 @@ use PHPUnit\Framework\TestCase;
 //Definir la clase de pruebas
 class MarkClassifierTest extends TestCase
 {
-// Método de prueba para "Nota >= 60%"
-public function testMarkGreater60()
-{
-    // Arrange: Preparando datos de prueba
-    $mark = 70;
+    // Método de prueba para "Nota > 100%"
+    public function testMarkGreater100()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = 170;
+    
+        // Act: Usando funcion testeadora
+        $output = testClassifier($mark);
+    
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Nota fora de rang', $output);
+    }
+    // Método de prueba para "Nota >= 60%"
+    public function testMarkGreater60()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = 70;
 
-    // Act: Usando funcion testeadora
-    $output = testClassifier($mark);
+        // Act: Usando funcion testeadora
+        $output = testClassifier($mark);
 
-    // Assert: Verificación del resultado esperado
-    $this->assertSame('Primera Divisió', $output);
-}
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Primera Divisió', $output, 'debería dar primera divisió');
+    }
+    // Método de prueba para "Nota < 60%"
+    public function testMarkSmaller60()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = 59;
+
+        // Act: Usando funcion testeadora
+        $output = Classifier($mark);
+
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Segona Divisió', $output, 'debería dar segona divisió');
+    }
+    // Método de prueba para "Nota < 45%"
+    public function testMarkSmaller45()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = 44;
+
+        // Act: Usando funcion testeadora
+        $output = Classifier($mark);
+
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Tercera Divisió', $output, 'debería dar tercera divisió');
+    }
+    // Método de prueba para "Nota <33%"
+    public function testMarkSmaller33()
+    {
+        // Arrange: Preparando datos de prueba
+        $mark = 32;
+
+        // Act: Usando funcion testeadora
+        $output = Classifier($mark);
+
+        // Assert: Verificación del resultado esperado
+        $this->assertSame('Tercera Divisió', $output, 'debería dar tercera divisió');
+    }
 
 // Otros métodos de prueba para los casos restantes
 }
