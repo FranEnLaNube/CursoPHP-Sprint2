@@ -1,29 +1,37 @@
 USE tienda;
 
 #1. Llista el nom de tots els productes que hi ha en la taula "producto".
-	# Podría hacer producto.nombre pero no es necesario ya que no hay un JOIN
-SELECT nombre FROM producto;
+	# Podría hacer producto.nombre pero no es necesario ya que no hay un JOIN o dos tablas involucradas
+SELECT nombre AS 'Productos' FROM producto;
 
 #2. Llista els noms i els preus de tots els productes de la taula "producto".
-SELECT nombre, precio FROM producto;
+	# También se puede fijar un alias sin AS
+SELECT nombre 'Producto', precio 'Precio' FROM producto;
 
 #3. Llista totes les columnes de la taula "producto".
+	# Para mostrar todos los campos de una tabla:
 SELECT * FROM producto;
+	# O si quiero mostrar las columnas que tiene junto con más info:
+SHOW COLUMNS FROM producto;
 
 #4. Llista el nom dels "productos", el preu en euros i el preu en dòlars nord-americans (USD).
+	# El ROUND funciona con dos parámetros, el valor a redondear (en este caso el valor que salga de la columna) y la cantidad de decimales que se quieren.
 SELECT nombre AS 'Productos', precio AS 'Precio EUR', ROUND(precio * 1.07, 2) AS 'Precio USD' FROM producto;
 
 #5. Llista el nom dels "productos", el preu en euros i el preu en dòlars nord-americans. Utilitza els següents àlies per a les columnes: nom de "producto", euros, dòlars nord-americans.
 SELECT nombre AS 'Nom de producto', precio AS 'Euros', ROUND(precio * 1.07, 2) AS 'Dòlars nord-americans' FROM producto;
 
 #6. Llista els noms i els preus de tots els productes de la taula "producto", convertint els noms a majúscula.
+	# UPPER() y UCASE() funcionan igual
 SELECT UPPER(nombre) AS 'Nombre en mayúscula', precio FROM producto;
 
 #7. Llista els noms i els preus de tots els productes de la taula "producto", convertint els noms a minúscula.
+	# LOWER() y LCASE() funcionan igual
 SELECT LOWER(nombre) AS 'Nombre en minúscula', precio FROM producto;
 
 #8. Llista el nom de tots els fabricants en una columna, i en una altra columna obtingui en majúscules els dos primers caràcters del nom del fabricant.
-	# Se puede usar SUBSTR() o SUBSTRING(), son lo mismo.
+	# Se puede usar MID(), SUBSTR() o SUBSTRING(), son lo mismo.
+    # Aceptan 3 parámetros, el texto a cortar, la posición de comienzo, y cuántas letras saca (opcional).
 SELECT nombre AS 'Fabricante', UPPER(MID(nombre, 1, 2)) AS 'Extracto Fabricante' FROM fabricante;
 
 #9. Llista els noms i els preus de tots els productes de la taula "producto", arrodonint el valor del preu.
@@ -36,16 +44,19 @@ SELECT nombre AS Producto, TRUNCATE(precio, 0) AS 'Precio truncado' FROM product
 
 #11. Llista el codi dels fabricants que tenen productes en la taula "producto".
 	#Selecciono solo los que cumplen con la condicion
-SELECT f.codigo as 'Código de fabricante' FROM producto AS p INNER JOIN fabricante AS f ON p.codigo_fabricante = f.codigo;
+    # La palabra INNER se puede omitir
+SELECT f.codigo AS 'Código de fabricante' FROM producto AS p INNER JOIN fabricante AS f ON p.codigo_fabricante = f.codigo;
 
 #12. Llista el codi dels fabricants que tenen productes en la taula "producto", eliminant els codis que apareixen repetits.
-	# Con DISTINCT traigo solo la primera aparición de dos registros iguales en todos los campos.
-SELECT DISTINCT f.codigo as 'Código de fabricante' FROM producto AS p INNER JOIN fabricante AS f ON p.codigo_fabricante = f.codigo;
+	# Con DISTINCT traigo solo la primera aparición de registros iguales en todos los campos.
+SELECT DISTINCT f.codigo AS 'Código de fabricante' FROM producto AS p INNER JOIN fabricante AS f ON p.codigo_fabricante = f.codigo;
 
 #13. Llista els noms dels fabricants ordenats de manera ascendent.
+	# ASC es por defecto, se puede obviar.
 SELECT nombre AS 'Nombre fabricante' FROM fabricante ORDER BY nombre ASC;
 
 #14. Llista els noms dels fabricants ordenats de manera descendent.
+	# Los String se ordenan alfabéticamente.
 SELECT nombre AS 'Nombre fabricante' FROM fabricante ORDER BY nombre DESC;
 
 #15. Llista els noms dels productes ordenats, en primer lloc, pel nom de manera ascendent i, en segon lloc, pel preu de manera descendent.
@@ -108,22 +119,45 @@ SELECT p.nombre AS 'Producto', p.precio AS 'Precio', f.nombre as 'Fabricante' FR
 SELECT DISTINCT f.codigo AS 'Código fabricante', f.nombre AS 'Fabricante' FROM fabricante AS f INNER JOIN producto AS p ON f.codigo = p.codigo_fabricante;
 
 #34. Retorna un llistat de tots els fabricants que existeixen en la base de dades, juntament amb els productes que té cadascun d'ells. El llistat haurà de mostrar també aquells fabricants que no tenen productes associats.
+	# Traigo todos los productos de fabricante y su unión con productos
 SELECT f.nombre AS 'Fabricante', p.nombre AS 'Producto' FROM fabricante AS f LEFT JOIN producto AS p ON p.codigo_fabricante = f.codigo;
 
 #35. Retorna un llistat on només apareguin aquells fabricants que no tenen cap producte associat.
+	# Filtro los resultados que no tienen vinculación
 SELECT f.nombre AS 'Fabricante', p.nombre AS 'Producto' FROM fabricante AS f LEFT JOIN producto AS p ON p.codigo_fabricante = f.codigo WHERE p.nombre IS NULL;
 
 #36. Retorna tots els productes del fabricant Lenovo. (Sense utilitzar INNER JOIN).
+	# Utilizo una subconsulta
 SELECT p.nombre AS 'Productos Lenovo' FROM producto AS p WHERE p.codigo_fabricante = (SELECT f.codigo FROM fabricante AS f WHERE f.nombre = 'Lenovo');
 
 #37. Retorna totes les dades dels productes que tenen el mateix preu que el producte més car del fabricant Lenovo. (Sense fer servir INNER JOIN).
+	#Empleando subconsultas
 SELECT * FROM producto p WHERE p.precio = (SELECT MAX(p.precio) FROM producto p WHERE p.codigo_fabricante = (SELECT f.codigo FROM fabricante f WHERE f.nombre = 'Lenovo'));
 
 #38. Llista el nom del producte més car del fabricant Lenovo.
-
-#CHEQUEAR QUE ESTA CREO NO ESTA FUNCIONANDO
-SELECT p.nombre 'Producto más caro de Lenovo' FROM producto p WHERE (SELECT MAX(p.precio) FROM producto p WHERE p.codigo_fabricante = (SELECT f.codigo FROM fabricante f WHERE f.nombre = 'Lenovo'));
+	# Sin usar JOIN
+SELECT p.nombre 'Producto más caro de Lenovo' FROM producto p WHERE p.precio = (SELECT MAX(p.precio) FROM producto p WHERE p.codigo_fabricante = (SELECT f.codigo FROM fabricante f WHERE f.nombre = 'Lenovo'));
+	# Usando JOIN
+SELECT p.nombre 'Producto más caro de Lenovo' FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE p.precio = (SELECT MAX(p.precio) FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE f.nombre = 'Lenovo');
+	# Usando ORDER BY Y LIMIT
+SELECT p.nombre 'Producto más caro de Lenovo' FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE f.nombre = 'Lenovo' ORDER BY p.precio DESC LIMIT 1;
 
 #39. Llista el nom del producte més barat del fabricant Hewlett-Packard.
+	#También se pueden usar las alternativas del #38
+    #Opto por ORDER BY Y LIMIT:
+SELECT p.nombre 'Producto Hewlett-Packard más barato' FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE f.nombre = 'Hewlett-Packard' ORDER BY p.precio LIMIT 1;
+	#Sin usar JOIN
+SELECT p.nombre 'Producto Hewlett-Packard más barato' FROM producto p WHERE p.precio = (SELECT MIN(p.precio) FROM producto p WHERE p.codigo_fabricante = (SELECT f.codigo FROM fabricante f WHERE f.nombre = 'Hewlett-Packard'));
+
 #40. Retorna tots els productes de la base de dades que tenen un preu major o igual al producte més car del fabricant Lenovo.
-#41. Llesta tots els productes del fabricant Asus que tenen un preu superior al preu mitjà de tots els seus productes.*/
+	# Obtengo el más caro de Lenovo con la consulta del #38 y la uso en el WHERE del SELECT p.nombre
+    # También se pueden usar las alternativas del #38
+SELECT p.nombre 'Productos igual o más caros que Lenovo' FROM producto p WHERE p.precio >= (SELECT MAX(p.precio) FROM producto p WHERE p.codigo_fabricante = (SELECT f.codigo FROM fabricante f WHERE f.nombre = 'Lenovo'));
+	# Ejemplo con JOIN, que me permite traer también el nombre del fabricante
+SELECT p.nombre 'Productos igual o más caros que Lenovo', f.nombre 'Fabricante' FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE p.precio >= (SELECT MAX(p.precio) FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE f.nombre = 'Lenovo');
+
+#41. Llesta tots els productes del fabricant Asus que tenen un preu superior al preu mitjà de tots els seus productes.
+	#Aquí usando subconsulta solamente
+SELECT p.nombre 'Productos caros de Asus' FROM producto p WHERE p.precio > (SELECT AVG (p.precio) FROM producto p WHERE p.codigo_fabricante = (SELECT f.codigo FROM fabricante f WHERE f.nombre = 'Asus')) AND p.codigo_fabricante = (SELECT f.codigo FROM fabricante f WHERE f.nombre = 'Asus');
+	# Pero también se podría usar JOIN
+SELECT p.nombre 'Productos caros de Asus', f.nombre 'Fabricante' FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE p.precio > (SELECT AVG(p.precio) FROM producto p JOIN fabricante f ON p.codigo_fabricante = f.codigo WHERE f.nombre = 'Asus') AND f.nombre = 'Asus';
