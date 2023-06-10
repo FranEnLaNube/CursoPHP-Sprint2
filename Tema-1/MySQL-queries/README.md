@@ -86,9 +86,9 @@ Tindràs nivell 2 si construeixes entre 37 i 56 consultes correctes, 20 de les q
 ### Nivell 3
 Nivell 3 si aconsegueixes construir correctament més de 56 consultes correctes (20 d'elles hauran de ser del diagrama "Universidad")!!!
 ## Recursos
-Pots descarregar la base de dades en el fitxer adjunt.
-- schema_tienda.zip
-- schema_universidad.zip
+Pots descarregar la base de dades en els fitxers adjunts.
+- schema_tienda.sql
+- schema_universidad.sql
 
 #### Objectius
 Aprendre a consultar una base de dades SQL.
