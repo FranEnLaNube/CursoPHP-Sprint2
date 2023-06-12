@@ -43,16 +43,21 @@ SELECT DISTINCT dp.nombre 'Departamento', pe.apellido1 'Primer apellido', pe.ape
 
 # 2. Retorna un llistat amb els professors/es que no estan associats a un departament.
 	# No devuelve ningún valor porque id_departamento no acepta nulos.
+    # Revisar
+SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre', dp.nombre 'Departamento' FROM profesor pf JOIN persona pe ON pf.id_profesor = pe.id LEFT JOIN departamento dp ON pf.id_departamento = dp.id  WHERE pf.id_departamento IS NULL;
+	# O sin LJ
 SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe JOIN profesor pf ON pe.id = pf.id_profesor WHERE pf.id_departamento IS NULL;
-SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre', dp.nombre 'Departamento' FROM profesor pf JOIN persona pe ON pf.id_profesor = pe.id LEFT JOIN departamento dp ON pf.id_departamento = dp.id;
+
 # 3. Retorna un llistat amb els departaments que no tenen professors/es associats.
-SELECT dp.nombre 'Departamento', pf.id_profesor FROM departamento dp LEFT JOIN profesor pf ON dp.id = pf.id_departamento WHERE pf.id_departamento IS NULL;
+SELECT dp.nombre 'Departamento' FROM departamento dp LEFT JOIN profesor pf ON dp.id = pf.id_departamento WHERE pf.id_departamento IS NULL;
 
 # 4. Retorna un llistat amb els professors/es que no imparteixen cap assignatura.
 	#Revisar
 SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe JOIN profesor pf ON pe.id = pf.id_profesor LEFT JOIN asignatura asi ON pf.id_profesor = asi.id_profesor WHERE asi.id_profesor IS NULL;
 
 # 5. Retorna un llistat amb les assignatures que no tenen un professor/a assignat.
+SELECT asi.nombre 'Asignatura' FROM asignatura asi LEFT JOIN profesor pf ON pf.id_profesor = asi.id_profesor WHERE asi.id_profesor IS NULL;
+
 # 6. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
 
 ### Consultes resum:
