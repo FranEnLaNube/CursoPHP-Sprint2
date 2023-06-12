@@ -26,36 +26,25 @@ SELECT nombre 'Asignatura' FROM asignatura WHERE cuatrimestre = 1 AND curso = 3 
 SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre', dp.nombre 'Departamento' FROM profesor JOIN persona pe ON pe.id = id_profesor JOIN departamento dp ON dp.id = id_departamento ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
 
 # 7. Retorna un llistat amb el nom de les assignatures, any d'inici i any de fi del curs escolar de l'alumne/a amb NIF 26902806M.
-SELECT asi.nombre 'Asignatura', ce.anyo_inicio 'Año inicio' , ce.anyo_fin 'Año fin' 
-FROM alumno_se_matricula_asignatura asma
-JOIN curso_escolar ce ON ce.id = asma.id_curso_escolar
-JOIN persona pe ON pe.id = id_alumno
-JOIN asignatura asi ON asi.id = id_asignatura
-WHERE pe.nif ='26902806M';
+SELECT asi.nombre 'Asignatura', ce.anyo_inicio 'Año inicio' , ce.anyo_fin 'Año fin' FROM alumno_se_matricula_asignatura asma JOIN curso_escolar ce ON ce.id = asma.id_curso_escolar JOIN persona pe ON pe.id = asma.id_alumno JOIN asignatura asi ON asi.id = asma.id_asignatura WHERE pe.nif ='26902806M';
 
 # 8. Retorna un llistat amb el nom de tots els departaments que tenen professors/es que imparteixen alguna assignatura en el Grau en Enginyeria Informàtica (Pla 2015).
 	# También se podría hacer con GROUP BY al igual que la #9
-SELECT DISTINCT dp.nombre 'Departamento' FROM departamento dp JOIN profesor pf ON dp.id = pf.id_departamento JOIN asignatura asi ON pf.id_profesor = asi.id_profesor JOIN grado gr ON asi.id_grado = gr.id WHERE id_grado = (SELECT id FROM grado WHERE nombre = 'Grado en Ingeniería Informática (Plan 2015)');
+SELECT DISTINCT dp.nombre 'Departamento' FROM departamento dp JOIN profesor pf ON dp.id = pf.id_departamento JOIN asignatura asi ON pf.id_profesor = asi.id_profesor JOIN grado gr ON asi.id_grado = gr.id WHERE gr.nombre = 'Grado en Ingeniería Informática (Plan 2015)';
 
 # 9. Retorna un llistat amb tots els/les alumnes que s'han matriculat en alguna assignatura durant el curs escolar 2018/2019.
-SELECT DISTINCT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre'FROM persona pe JOIN alumno_se_matricula_asignatura asma ON pe.id = asma.id_alumno JOIN curso_escolar ce ON asma.id_curso_escolar = ce.id WHERE ce.id = (SELECT ce.id FROM curso_escolar ce WHERE anyo_inicio BETWEEN 2018 AND 2019);
+SELECT DISTINCT CONCAT(pe.apellido1, ' ', pe.apellido2, ', ', pe.nombre) AS 'Alumnos matriculados 2018/2019' FROM persona pe JOIN alumno_se_matricula_asignatura asma ON pe.id = asma.id_alumno JOIN curso_escolar ce ON asma.id_curso_escolar = ce.id WHERE ce.anyo_inicio BETWEEN 2018 AND 2019;
 
 ### Resol les 6 següents consultes utilitzant les clàusules LEFT JOIN i RIGHT JOIN.
 
-# 1. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats/des. 
-# El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. 
-# El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. 
-# El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
-	# No hay profesores sin asignación de departamento porque es un NOT NULL
-SELECT dp.nombre 'Departamento', pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' 
-FROM persona pe
-JOIN profesor pf ON pe.id = pf.id_profesor
-LEFT JOIN departamento dp ON pf.id_departamento = dp.id;
+# 1. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats/des. El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a.El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
+
+SELECT DISTINCT dp.nombre 'Departamento', pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM profesor pf LEFT JOIN departamento dp ON pf.id_profesor = dp.id JOIN persona pe ON pf.id_profesor = pe.id ORDER BY dp.nombre , pe.apellido1 , pe.apellido2, pe.nombre;
 
 # 2. Retorna un llistat amb els professors/es que no estan associats a un departament.
 	# No devuelve ningún valor porque id_departamento no acepta nulos.
 SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe JOIN profesor pf ON pe.id = pf.id_profesor WHERE pf.id_departamento IS NULL;
-
+SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre', dp.nombre 'Departamento' FROM profesor pf JOIN persona pe ON pf.id_profesor = pe.id LEFT JOIN departamento dp ON pf.id_departamento = dp.id;
 # 3. Retorna un llistat amb els departaments que no tenen professors/es associats.
 SELECT dp.nombre 'Departamento', pf.id_profesor FROM departamento dp LEFT JOIN profesor pf ON dp.id = pf.id_departamento WHERE pf.id_departamento IS NULL;
 
