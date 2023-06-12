@@ -38,16 +38,11 @@ SELECT DISTINCT CONCAT(pe.apellido1, ' ', pe.apellido2, ', ', pe.nombre) AS 'Alu
 ### Resol les 6 següents consultes utilitzant les clàusules LEFT JOIN i RIGHT JOIN.
 
 # 1. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats/des. El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a.El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
-
 SELECT DISTINCT dp.nombre 'Departamento', pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM profesor pf LEFT JOIN departamento dp ON pf.id_profesor = dp.id JOIN persona pe ON pf.id_profesor = pe.id ORDER BY dp.nombre , pe.apellido1 , pe.apellido2, pe.nombre;
 
 # 2. Retorna un llistat amb els professors/es que no estan associats a un departament.
-	# No devuelve ningún valor porque id_departamento no acepta nulos.
-    # Revisar
-SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre', dp.nombre 'Departamento' FROM profesor pf JOIN persona pe ON pf.id_profesor = pe.id LEFT JOIN departamento dp ON pf.id_departamento = dp.id  WHERE pf.id_departamento IS NULL;
-	# O sin LJ
-SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe JOIN profesor pf ON pe.id = pf.id_profesor WHERE pf.id_departamento IS NULL;
-
+SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe LEFT JOIN profesor pf ON pe.id = pf.id_profesor WHERE pe.tipo = 'profesor' AND pf.id_profesor IS NULL;
+    
 # 3. Retorna un llistat amb els departaments que no tenen professors/es associats.
 SELECT dp.nombre 'Departamento' FROM departamento dp LEFT JOIN profesor pf ON dp.id = pf.id_departamento WHERE pf.id_departamento IS NULL;
 
@@ -59,6 +54,7 @@ SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombr
 SELECT asi.nombre 'Asignatura' FROM asignatura asi LEFT JOIN profesor pf ON pf.id_profesor = asi.id_profesor WHERE asi.id_profesor IS NULL;
 
 # 6. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
+SELECT DISTINCT dp.nombre 'Departamento' FROM departamento dp JOIN profesor pf ON pf.id_departamento = dp.id JOIN asignatura asi ON pf.id_profesor LEFT JOIN alumno_se_matricula_asignatura asma ON asi.id = asma.id_asignatura WHERE asma.id_asignatura IS NULL;
 
 ### Consultes resum:
 
@@ -75,7 +71,7 @@ SELECT COUNT(pf.id_departamento) AS 'Cantidad profesores', dp.nombre AS 'Departa
 SELECT COUNT(pf.id_departamento) AS 'Cantidad profesores', dp.nombre AS 'Departamento' FROM departamento dp LEFT JOIN profesor pf ON pf.id_departamento = dp.id GROUP BY dp.nombre;
 
 # 5. Retorna un llistat amb el nom de tots els graus existents en la base de dades i el nombre d'assignatures que té cadascun. Té en compte que poden existir graus que no tenen assignatures associades. Aquests graus també han d'aparèixer en el llistat. El resultat haurà d'estar ordenat de major a menor pel nombre d'assignatures.
-
+SELECT gr.nombre 'Grado', COUNT(asi.id) 'Cantidad de asignaturas' FROM grado gr LEFT JOIN asignatura asi ON gr.id = asi.id_grado GROUP BY gr.nombre ORDER BY COUNT(asi.id) DESC; 
 
 # 6. Retorna un llistat amb el nom de tots els graus existents en la base de dades i el nombre d'assignatures que té cadascun, dels graus que tinguin més de 40 assignatures associades.
 # 7. Retorna un llistat que mostri el nom dels graus i la suma del nombre total de crèdits que hi ha per a cada tipus d'assignatura. El resultat ha de tenir tres columnes: nom del grau, tipus d'assignatura i la suma dels crèdits de totes les assignatures que hi ha d'aquest tipus.
