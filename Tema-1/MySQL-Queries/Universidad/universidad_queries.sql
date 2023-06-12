@@ -1,31 +1,88 @@
 ## Base de dades "Universidad"
-
+USE universidad;
 # 1. Retorna un llistat amb el primer cognom, segon cognom i el nom de tots els/les alumnes. El llistat haurà d'estar ordenat alfabèticament de menor a major pel primer cognom, segon cognom i nom.
+	# Uso la clasificación que tiene en persona entre alumno o profesor, ordeno de forma ascendente.
+SELECT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre' FROM persona WHERE tipo = 'alumno' ORDER BY Apellido1, Apellido2, Nombre; 
+
 # 2. Esbrina el nom i els dos cognoms dels/les alumnes que no han donat d'alta el seu número de telèfon en la base de dades.
+	# Lo mismo pero sin ordenar, buscando el campo nulo para teléfono.
+SELECT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre' FROM persona WHERE tipo = 'alumno' AND telefono IS NULL;
+
 # 3. Retorna el llistat dels/les alumnes que van néixer en 1999.
+	# Usando BETWEEN
+SELECT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre' FROM persona WHERE tipo = 'alumno' AND fecha_nacimiento BETWEEN '1999/01/01' AND '1999/12/31';
+	# Usando la funcion YEAR, también hay para MONTH y DAY.
+SELECT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre' FROM persona WHERE tipo = 'alumno' AND YEAR(fecha_nacimiento) = 1999;
+
 # 4. Retorna el llistat de professors/es que no han donat d'alta el seu número de telèfon en la base de dades i a més el seu NIF acaba en K.
+	# El LIKE no es sensible a mayúsculas, puede ir con % (cero, uno, muchos caracteres) o con _ (un caracter)
+SELECT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre' FROM persona WHERE tipo = 'profesor' AND telefono IS NULL AND nif LIKE '%K';
+
 # 5. Retorna el llistat de les assignatures que s'imparteixen en el primer quadrimestre, en el tercer curs del grau que té l'identificador 7.
+SELECT nombre 'Asignatura' FROM asignatura WHERE cuatrimestre = 1 AND curso = 3 AND id_grado = 7;
+
 # 6. Retorna un llistat dels professors/es juntament amb el nom del departament al qual estan vinculats/des. El llistat ha de retornar quatre columnes, primer cognom, segon cognom, nom i nom del departament. El resultat estarà ordenat alfabèticament de menor a major pels cognoms i el nom.
+	# Un triple INNER JOIN entre profesor, persona y departamento.
+SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre', dp.nombre 'Departamento' FROM profesor JOIN persona pe ON pe.id = id_profesor JOIN departamento dp ON dp.id = id_departamento ORDER BY pe.apellido1, pe.apellido2, pe.nombre;
+
 # 7. Retorna un llistat amb el nom de les assignatures, any d'inici i any de fi del curs escolar de l'alumne/a amb NIF 26902806M.
+SELECT asi.nombre 'Asignatura', ce.anyo_inicio 'Año inicio' , ce.anyo_fin 'Año fin' 
+FROM alumno_se_matricula_asignatura asma
+JOIN curso_escolar ce ON ce.id = asma.id_curso_escolar
+JOIN persona pe ON pe.id = id_alumno
+JOIN asignatura asi ON asi.id = id_asignatura
+WHERE pe.nif ='26902806M';
+
 # 8. Retorna un llistat amb el nom de tots els departaments que tenen professors/es que imparteixen alguna assignatura en el Grau en Enginyeria Informàtica (Pla 2015).
+	# También se podría hacer con GROUP BY al igual que la #9
+SELECT DISTINCT dp.nombre 'Departamento' FROM departamento dp JOIN profesor pf ON dp.id = pf.id_departamento JOIN asignatura asi ON pf.id_profesor = asi.id_profesor JOIN grado gr ON asi.id_grado = gr.id WHERE id_grado = (SELECT id FROM grado WHERE nombre = 'Grado en Ingeniería Informática (Plan 2015)');
+
 # 9. Retorna un llistat amb tots els/les alumnes que s'han matriculat en alguna assignatura durant el curs escolar 2018/2019.
+SELECT DISTINCT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre'FROM persona pe JOIN alumno_se_matricula_asignatura asma ON pe.id = asma.id_alumno JOIN curso_escolar ce ON asma.id_curso_escolar = ce.id WHERE ce.id = (SELECT ce.id FROM curso_escolar ce WHERE anyo_inicio BETWEEN 2018 AND 2019);
 
 ### Resol les 6 següents consultes utilitzant les clàusules LEFT JOIN i RIGHT JOIN.
 
-# 1. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats/des. El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
+# 1. Retorna un llistat amb els noms de tots els professors/es i els departaments que tenen vinculats/des. 
+# El llistat també ha de mostrar aquells professors/es que no tenen cap departament associat. 
+# El llistat ha de retornar quatre columnes, nom del departament, primer cognom, segon cognom i nom del professor/a. 
+# El resultat estarà ordenat alfabèticament de menor a major pel nom del departament, cognoms i el nom.
+	# No hay profesores sin asignación de departamento porque es un NOT NULL
+SELECT dp.nombre 'Departamento', pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' 
+FROM persona pe
+JOIN profesor pf ON pe.id = pf.id_profesor
+LEFT JOIN departamento dp ON pf.id_departamento = dp.id;
+
 # 2. Retorna un llistat amb els professors/es que no estan associats a un departament.
+	# No devuelve ningún valor porque id_departamento no acepta nulos.
+SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe JOIN profesor pf ON pe.id = pf.id_profesor WHERE pf.id_departamento IS NULL;
+
 # 3. Retorna un llistat amb els departaments que no tenen professors/es associats.
+SELECT dp.nombre 'Departamento', pf.id_profesor FROM departamento dp LEFT JOIN profesor pf ON dp.id = pf.id_departamento WHERE pf.id_departamento IS NULL;
+
 # 4. Retorna un llistat amb els professors/es que no imparteixen cap assignatura.
+	#Revisar
+SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe JOIN profesor pf ON pe.id = pf.id_profesor LEFT JOIN asignatura asi ON pf.id_profesor = asi.id_profesor WHERE asi.id_profesor IS NULL;
+
 # 5. Retorna un llistat amb les assignatures que no tenen un professor/a assignat.
 # 6. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
 
 ### Consultes resum:
 
 # 1. Retorna el nombre total d'alumnes que hi ha.
+SELECT COUNT(id) FROM persona WHERE tipo = 'alumno';
+
 # 2. Calcula quants/es alumnes van néixer en 1999.
+SELECT COUNT(id) FROM persona WHERE tipo = 'alumno' AND fecha_nacimiento BETWEEN '1999/01/01' AND '1999/12/31';
+
 # 3. Calcula quants/es professors/es hi ha en cada departament. El resultat només ha de mostrar dues columnes, una amb el nom del departament i una altra amb el nombre de professors/es que hi ha en aquest departament. El resultat només ha d'incloure els departaments que tenen professors/es associats i haurà d'estar ordenat de major a menor pel nombre de professors/es.
+SELECT COUNT(pf.id_departamento) AS 'Cantidad profesores', dp.nombre AS 'Departamento' FROM departamento dp JOIN profesor pf ON pf.id_departamento = dp.id GROUP BY dp.nombre ORDER BY COUNT(pf.id_departamento) DESC;
+
 # 4. Retorna un llistat amb tots els departaments i el nombre de professors/es que hi ha en cadascun d'ells. Té en compte que poden existir departaments que no tenen professors/es associats/des. Aquests departaments també han d'aparèixer en el llistat.
+SELECT COUNT(pf.id_departamento) AS 'Cantidad profesores', dp.nombre AS 'Departamento' FROM departamento dp LEFT JOIN profesor pf ON pf.id_departamento = dp.id GROUP BY dp.nombre;
+
 # 5. Retorna un llistat amb el nom de tots els graus existents en la base de dades i el nombre d'assignatures que té cadascun. Té en compte que poden existir graus que no tenen assignatures associades. Aquests graus també han d'aparèixer en el llistat. El resultat haurà d'estar ordenat de major a menor pel nombre d'assignatures.
+
+
 # 6. Retorna un llistat amb el nom de tots els graus existents en la base de dades i el nombre d'assignatures que té cadascun, dels graus que tinguin més de 40 assignatures associades.
 # 7. Retorna un llistat que mostri el nom dels graus i la suma del nombre total de crèdits que hi ha per a cada tipus d'assignatura. El resultat ha de tenir tres columnes: nom del grau, tipus d'assignatura i la suma dels crèdits de totes les assignatures que hi ha d'aquest tipus.
 # 8. Retorna un llistat que mostri quants/es alumnes s'han matriculat d'alguna assignatura en cadascun dels cursos escolars. El resultat haurà de mostrar dues columnes, una columna amb l'any d'inici del curs escolar i una altra amb el nombre d'alumnes matriculats/des.
