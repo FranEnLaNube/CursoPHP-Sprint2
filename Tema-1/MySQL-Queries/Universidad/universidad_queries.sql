@@ -47,11 +47,10 @@ SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombr
 SELECT dp.nombre 'Departamento' FROM departamento dp LEFT JOIN profesor pf ON dp.id = pf.id_departamento WHERE pf.id_departamento IS NULL;
 
 # 4. Retorna un llistat amb els professors/es que no imparteixen cap assignatura.
-	#Revisar
 SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe JOIN profesor pf ON pe.id = pf.id_profesor LEFT JOIN asignatura asi ON pf.id_profesor = asi.id_profesor WHERE asi.id_profesor IS NULL;
 
 # 5. Retorna un llistat amb les assignatures que no tenen un professor/a assignat.
-SELECT asi.nombre 'Asignatura' FROM asignatura asi LEFT JOIN profesor pf ON pf.id_profesor = asi.id_profesor WHERE asi.id_profesor IS NULL;
+SELECT asi.nombre 'Asignatura' FROM asignatura asi WHERE asi.id_profesor IS NULL;
 
 # 6. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar.
 SELECT DISTINCT dp.nombre 'Departamento' FROM departamento dp JOIN profesor pf ON pf.id_departamento = dp.id JOIN asignatura asi ON pf.id_profesor LEFT JOIN alumno_se_matricula_asignatura asma ON asi.id = asma.id_asignatura WHERE asma.id_asignatura IS NULL;
@@ -62,7 +61,9 @@ SELECT DISTINCT dp.nombre 'Departamento' FROM departamento dp JOIN profesor pf O
 SELECT COUNT(id) FROM persona WHERE tipo = 'alumno';
 
 # 2. Calcula quants/es alumnes van néixer en 1999.
-SELECT COUNT(id) FROM persona WHERE tipo = 'alumno' AND fecha_nacimiento BETWEEN '1999/01/01' AND '1999/12/31';
+SELECT COUNT(id) 'Alumnos nacidos en 1999' FROM persona WHERE tipo = 'alumno' AND fecha_nacimiento BETWEEN '1999/01/01' AND '1999/12/31';
+	#Usando YEAR
+SELECT COUNT(id) FROM persona WHERE tipo = 'alumno' AND YEAR(fecha_nacimiento) = 1999;
 
 # 3. Calcula quants/es professors/es hi ha en cada departament. El resultat només ha de mostrar dues columnes, una amb el nom del departament i una altra amb el nombre de professors/es que hi ha en aquest departament. El resultat només ha d'incloure els departaments que tenen professors/es associats i haurà d'estar ordenat de major a menor pel nombre de professors/es.
 SELECT COUNT(pf.id_departamento) AS 'Cantidad profesores', dp.nombre AS 'Departamento' FROM departamento dp JOIN profesor pf ON pf.id_departamento = dp.id GROUP BY dp.nombre ORDER BY COUNT(pf.id_departamento) DESC;
@@ -74,8 +75,13 @@ SELECT COUNT(pf.id_departamento) AS 'Cantidad profesores', dp.nombre AS 'Departa
 SELECT gr.nombre 'Grado', COUNT(asi.id) 'Cantidad de asignaturas' FROM grado gr LEFT JOIN asignatura asi ON gr.id = asi.id_grado GROUP BY gr.nombre ORDER BY COUNT(asi.id) DESC; 
 
 # 6. Retorna un llistat amb el nom de tots els graus existents en la base de dades i el nombre d'assignatures que té cadascun, dels graus que tinguin més de 40 assignatures associades.
+SELECT gr.nombre ' Grado', COUNT(*) 'Cantidad asignaturas' FROM grado gr JOIN asignatura asi ON gr.id = asi.id_grado GROUP BY gr.nombre HAVING COUNT(*) > 40;
+
 # 7. Retorna un llistat que mostri el nom dels graus i la suma del nombre total de crèdits que hi ha per a cada tipus d'assignatura. El resultat ha de tenir tres columnes: nom del grau, tipus d'assignatura i la suma dels crèdits de totes les assignatures que hi ha d'aquest tipus.
+SELECT gr.nombre 'Grado', asi.tipo 'Tipo asignatura', SUM(asi.creditos) 'Créditos' FROM grado gr LEFT JOIN asignatura asi ON gr.id = asi.id_grado GROUP BY gr.nombre, asi.tipo;
 # 8. Retorna un llistat que mostri quants/es alumnes s'han matriculat d'alguna assignatura en cadascun dels cursos escolars. El resultat haurà de mostrar dues columnes, una columna amb l'any d'inici del curs escolar i una altra amb el nombre d'alumnes matriculats/des.
+
+
 # 9. Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. El llistat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures.
 # 10. Retorna totes les dades de l'alumne més jove.
 # 11. Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura.
