@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "648997a7a0b94a334e1249d4"
+  },
+  "_idCliente": {
+    "$oid": "648991eda0b94a334e1249bc"
+  },
+  "_idGafa": {
+    "$oid": "64898d27a0b94a334e1249b2"
+  },
+  "_idProveedor": {
+    "$oid": "64898f5ca0b94a334e1249b5"
+  },
+  "vendedor": "Vendedor1",
+  "fechaVenta": "2000-11-10"
+},
+{
+  "_id": {
+    "$oid": "648a12da80f687c89a36ffe9"
+  },
+  "_idCliente": {
+    "$oid": "648a0c599ac934ade78891f1"
+  },
+  "_idGafa": {
+    "$oid": "648a125180f687c89a36ffe2"
+  },
+  "_idProveedor": {
+    "$oid": "648a11c29ac934ade78891f3"
+  },
+  "vendedor": "Vendedor2",
+  "fechaVenta": "2001-11-10"
+}]
