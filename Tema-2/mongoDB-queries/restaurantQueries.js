@@ -1,5 +1,5 @@
 // Selecciono base de datos restaurants 
-use restaurant
+use restaurants
 // 1. Escriu una consulta per mostrar tots els documents en la col·lecció Restaurants.
 // Con argumento de búsqueda vacío
 
