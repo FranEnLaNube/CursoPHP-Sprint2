@@ -12,6 +12,8 @@
 <?php
 function classifier($mark)
 {
+//Debería tener dos funciones separadas. Una validadora y otra para clasificar.
+// Porque la validación no es única del clasificador, aplicar especificidad    
     if ($mark >= 0 && $mark <= 100) {
         if ($mark >= 60) {
             return 'Primera Divisió';
