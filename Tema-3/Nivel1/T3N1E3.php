@@ -10,10 +10,12 @@ function checker($words, $char)
     $char = strtolower($char);
     //Recorro todas las palabras del array
     for ($i = 0; $i < $words_len; $i++) {
-        if (str_contains($words[$i], $char)) {
-            //Si encuentra la letra, sumo 1 al contador
-            $counter++;
+        // Solo sumo al contador en caso de que encuentre, si no, sale
+        if (!str_contains($words[$i], $char)) {
+            break;
         }
+        //Si encuentra la letra, sumo 1 al contador
+        $counter++;
     }
     //Si el contador llega al largo del array, es TRUE
     if ($counter == $words_len) {
