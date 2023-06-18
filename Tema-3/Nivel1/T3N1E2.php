@@ -10,6 +10,7 @@ $newX = [];
 foreach ($X as $key => $value) {
     $newX[] = $value;
 }
+// Podría haber usado la función $X = array_values($X);
 //Printing $newX size
 echo '<br>';
 echo count($newX);
