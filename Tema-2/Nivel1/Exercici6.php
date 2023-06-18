@@ -10,8 +10,8 @@
 <?php 
 function isBitten()
 {
-    return rand(0,1);
+    return rand(0,1) ? 'TRUE': 'FALSE';
 }
-echo isBitten() ? 'TRUE': 'FALSE';
+echo isBitten();
 
 ?>
