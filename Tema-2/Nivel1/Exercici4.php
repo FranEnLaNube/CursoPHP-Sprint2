@@ -8,7 +8,7 @@ function counter($jump = 1, $finalNumber = 10)
         echo $i . '<br>';
     }
 }
-
+// Hubiera sido mejor hacerlo con range($inicio, $fin, $pasos); poniendo fin = 10 y asignarle el salto también
 counter(2);
 ?>
 
