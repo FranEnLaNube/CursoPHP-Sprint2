@@ -1,0 +1,20 @@
+# archivos de respaldo y temporales
+*~
+*.bak
+*.swp
+*.tmp
+
+# directorio de dependencias
+node_modules/
+
+# archivos compilados
+*.min.*
+
+# directorio de caché
+.cache/
+
+# directorio de compilación
+/dist/
+
+# Archivos de VSC
+.vscode/
