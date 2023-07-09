@@ -1,0 +1,44 @@
+[{
+  "_id": {
+    "$oid": "648991eda0b94a334e1249bc"
+  },
+  "nombre": "Nombre1",
+  "direccion": {
+    "calle": "Calle A",
+    "número": 321,
+    "piso": "Principal",
+    "puerta": 4,
+    "ciudad": "String",
+    "codigo postal": "08045",
+    "país": "País Super"
+  },
+  "telefono": "632323232",
+  "e-mail": "hola@correo.com",
+  "fechaRegistro": "2000-12-10",
+  "_idClienteReferido": {
+    "$oid": "648991eda0b94a334e1249bc"
+  }
+},
+{
+  "_id": {
+    "$oid": "648a0c599ac934ade78891f1"
+  },
+  "nombre": "Nombre2",
+  "direccion": {
+    "calle": "Calle B",
+    "número": 322,
+    "piso": "1",
+    "puerta": 3,
+    "ciudad": "Barcelona",
+    "codigo postal": "08025",
+    "país": "País Mejor"
+  },
+  "telefono": "632323233",
+  "e-mail": "chau@correo.com",
+  "fechaRegistro": {
+    "$date": "2000-12-10T00:00:00.000Z"
+  },
+  "_idClienteReferido": {
+    "$oid": "648991eda0b94a334e1249bc"
+  }
+}]

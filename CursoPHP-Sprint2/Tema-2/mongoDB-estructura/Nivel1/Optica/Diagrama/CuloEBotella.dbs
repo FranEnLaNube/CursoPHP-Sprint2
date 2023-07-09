@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MongoDb" id="Project-5cf" database="MongoDb" >
+	<schema name="CuloEBotella" >
+		<table name="clientes" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="direccion" type="object" length="800" decimal="0" jt="4999544" mandatory="y" >
+				<column name="calle" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="número" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="piso" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="puerta" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="codigo postal" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="país" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="ciudad" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			</column>
+			<column name="telefono" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="e-mail" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="fechaRegistro" type="object" length="800" decimal="0" jt="4999544" mandatory="y" />
+			<column name="_idClienteReferido" type="object" length="800" decimal="0" jt="4999544" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Relationship" virtual="y" to_schema="CuloEBotella" to_table="clientes" >
+				<fk_column name="_idClienteReferido" pk="_id" />
+			</fk>
+		</table>
+		<table name="gafas" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="graduaciónIzquierda" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="graduaciónDerecha" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="tipoMontura" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="colorMontura" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="colorVidrioIzquierdo" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="colorVidrioDerecho" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="precio" type="double" length="800" decimal="0" jt="8" mandatory="y" />
+			<column name="marca" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="_idProveedor" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Relationship" virtual="y" to_schema="CuloEBotella" to_table="proveedores" >
+				<fk_column name="_idProveedor" pk="_id" />
+			</fk>
+		</table>
+		<table name="proveedores" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="direccion" type="object" length="800" decimal="0" jt="4999544" mandatory="y" >
+				<column name="calle" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="número" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="piso" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="puerta" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="ciudad" prior="ciutad" type="string" length="800" decimal="0" jt="12" />
+				<column name="codigo postal" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="país" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="ciudad" type="string" length="800" decimal="0" jt="12" />
+			</column>
+			<column name="telefono" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="fax" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="NIF" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="ventas" virtual="y" >
+			<column name="_id" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="_idCliente" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="_idGafa" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="_idProveedor" type="objectId" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="vendedor" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="fechaVenta" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Relationship" virtual="y" to_schema="CuloEBotella" to_table="clientes" >
+				<fk_column name="_idCliente" pk="_id" />
+			</fk>
+			<fk name="Relationship" virtual="y" to_schema="CuloEBotella" to_table="gafas" >
+				<fk_column name="_idGafa" pk="_id" />
+			</fk>
+			<fk name="Relationship" virtual="y" to_schema="CuloEBotella" to_table="proveedores" >
+				<fk_column name="_idProveedor" pk="_id" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="MongoDb" database="MongoDb" driver_class="com.wisecoders.dbschema.mongodb.JdbcDriver" driver_jar="mongojdbc4.8.1.jar" driver_desc="No Authentication" host="localhost" port="27017" instance="CuloEBotella" user="admin" useSystemProxy="false" />
+	<layout name="CuloEBotella" id="Layout-daf" show_relation="columns" >
+		<entity schema="CuloEBotella" name="clientes" color="BED3F4" x="48" y="112" />
+		<entity schema="CuloEBotella" name="clientes" column="direccion" color="BED3F4" x="64" y="320" />
+		<entity schema="CuloEBotella" name="proveedores" column="direccion" color="C7F4BE" x="640" y="336" />
+		<entity schema="CuloEBotella" name="gafas" color="F4DDBE" x="336" y="336" />
+		<entity schema="CuloEBotella" name="proveedores" color="C7F4BE" x="656" y="112" />
+		<entity schema="CuloEBotella" name="ventas" color="BEBEF4" x="336" y="80" />
+		<group name="gafas" color="F7F2EC" >
+			<entity schema="CuloEBotella" name="gafas" />
+		</group>
+		<group name="ventas" color="ECECF7" >
+			<entity schema="CuloEBotella" name="ventas" />
+		</group>
+		<group name="proveedores" color="EEF7EC" >
+			<entity schema="CuloEBotella" name="proveedores" />
+			<entity schema="CuloEBotella" name="proveedores" column="direccion" />
+		</group>
+		<group name="direccion" color="ECF0F7" >
+			<entity schema="CuloEBotella" name="clientes" column="direccion" />
+			<entity schema="CuloEBotella" name="clientes" />
+		</group>
+	</layout>
+</project>
