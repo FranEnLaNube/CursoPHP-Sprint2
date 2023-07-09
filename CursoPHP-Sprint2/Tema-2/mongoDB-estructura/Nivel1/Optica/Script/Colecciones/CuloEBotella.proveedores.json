@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "64898f5ca0b94a334e1249b5"
+  },
+  "nombre": "Proveedor 1",
+  "direccion": {
+    "calle": "Calle X",
+    "número": 123,
+    "piso": 2,
+    "puerta": 1,
+    "codigo postal": "02345",
+    "país": "País 1",
+    "ciudad": "Ciudad"
+  },
+  "telefono": "123456789",
+  "fax": "623123123",
+  "NIF": "XABC123F"
+},
+{
+  "_id": {
+    "$oid": "648a11c29ac934ade78891f2"
+  },
+  "nombre": "Proveedor 2",
+  "direccion": {
+    "calle": "Calle B",
+    "número": 124,
+    "piso": 3,
+    "puerta": 6,
+    "ciudad": "Madrid",
+    "codigo postal": "08034",
+    "país": "País Espectacular"
+  },
+  "telefono": "123654789",
+  "fax": "623123321",
+  "NIF": "X1324354F"
+},
+{
+  "_id": {
+    "$oid": "648a11c29ac934ade78891f3"
+  },
+  "nombre": "Proveedor 3",
+  "direccion": {
+    "calle": "Calle C",
+    "número": 125,
+    "piso": 5,
+    "puerta": 1,
+    "ciudad": "Siurana",
+    "codigo postal": "04345",
+    "país": "País Joya"
+  },
+  "telefono": "123456789",
+  "fax": "623123123",
+  "NIF": "XABC123F"
+}]

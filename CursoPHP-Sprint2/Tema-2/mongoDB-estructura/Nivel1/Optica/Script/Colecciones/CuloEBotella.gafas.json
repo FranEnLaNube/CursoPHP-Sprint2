@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "64898d27a0b94a334e1249b2"
+  },
+  "graduaciónIzquierda": "+1.5",
+  "graduaciónDerecha": "-2.0",
+  "tipoMontura": "flotante",
+  "colorMontura": "Negro",
+  "colorVidrioIzquierdo": "Gris",
+  "colorVidrioDerecho": "Gris",
+  "precio": 99.99,
+  "marca": "Marca 1",
+  "_idProveedor": {
+    "$oid": "64898f5ca0b94a334e1249b5"
+  }
+},
+{
+  "_id": {
+    "$oid": "648a125180f687c89a36ffe2"
+  },
+  "graduaciónIzquierda": "+2.5",
+  "graduaciónDerecha": "-2.5",
+  "tipoMontura": "Metalica",
+  "colorMontura": "Azul",
+  "colorVidrioIzquierdo": "Marron",
+  "colorVidrioDerecho": "Marron",
+  "precio": 9.99,
+  "marca": "Marca 2",
+  "_idProveedor": {
+    "$oid": "648a11c29ac934ade78891f3"
+  }
+}]
