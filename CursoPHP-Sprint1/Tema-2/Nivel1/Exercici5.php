@@ -9,26 +9,34 @@
     <li>Si la nota és menor a 33%, l'estudiant reprovarà.</li>
 </ul>
 <h3>Resolució:</h3>
+</html>
 <?php
 function classifier($mark)
 {
-//Debería tener dos funciones separadas. Una validadora y otra para clasificar.
-// Porque la validación no es única del clasificador, aplicar especificidad    
-    if ($mark >= 0 && $mark <= 100) {
-        if ($mark >= 60) {
-            return 'Primera Divisió';
-        } elseif ($mark >= 45) {
-            return 'Segona Divisió';
-        } elseif ($mark >= 33) {
-            return 'Tercera Divisió';
-        } else {
-            return 'Suspenet';
-        }
+    //Debería tener dos funciones separadas. Una validadora y otra para clasificar.
+    // Porque la validación no es única del clasificador, aplicar especificidad    
+    if ($mark <= 100 && $mark >= 60) {
+        return 'Primera Divisió';
+    } elseif ($mark < 60 && $mark >= 45) {
+        return 'Segona Divisió';
+    } elseif ($mark < 45 && $mark >= 33) {
+        return 'Tercera Divisió';
+    } elseif ($mark < 33 && $mark >= 0) {
+        return 'Suspenet';
     } else {
-        return 'nota no vàlida';
+        return 'Valor no vàlido';
     }
 }
-echo classifier(-120)
-?>
+//          **Version to try in HTML**
 
-</html>
+/* $mark = 34;   //Here change the mark as you wish
+echo classifier($mark); */
+
+//          **Version to try in console**
+
+echo "\nProvem 3 cops:\n\n";
+for ($i=0; $i < 3; $i++) {
+    $mark = readline('¿Quina nota has obtingut? ');
+    echo classifier($mark) . "\n"; 
+}
+?>
