@@ -1,27 +1,19 @@
 <?php
-//Función que chequea si una letra está presente en todas las palabras de otro array
+//Function to check if a letter if present in an array of words
+
 function checker($words, $char)
 {
-    //Obtengo cantidad de elementos del array
-    $words_len = count($words);
-    //Inicializo contador, que tiene que llegar al $words_len para que sea TRUE
-    $counter = 0;
-    //Prevengo error con la capitalización de las palabras, str_contains() daría false
-    $char = strtolower($char);
-    //Recorro todas las palabras del array
-    for ($i = 0; $i < $words_len; $i++) {
-        // Solo sumo al contador en caso de que encuentre, si no, sale
-        if (!str_contains($words[$i], $char)) {
-            break;
+    foreach ($words as $word) {
+        // stripos() returns an int or null, so with is_int() get a bool
+        $isPresent = is_int(stripos($word, $char));
+        if (!$isPresent) {
+            return $isPresent;
         }
-        //Si encuentra la letra, sumo 1 al contador
-        $counter++;
     }
-    //Si el contador llega al largo del array, es TRUE
-    if ($counter == $words_len) {
-        echo "TRUE";
-    } else {
-        echo "FALSE";
-    }
+    return $isPresent;
 }
-checker(['Pedro', 'Roberto', 'Martin', 'Mariano'], 'R');
+// Solution
+$words = ['Pedro', 'Roberto', 'Martin', 'Mariano'];
+$char = 'R';
+$result = checker($words, $char);
+var_dump($result);
