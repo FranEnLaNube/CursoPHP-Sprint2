@@ -22,10 +22,9 @@ SELECT nombre AS Producto, ROUND(precio, 0) AS 'Precio redondeado' FROM producto
 #10. Llista els noms i els preus de tots els productes de la taula "producto", truncant el valor del preu per a mostrar-lo sense cap xifra decimal.
 SELECT nombre AS Producto, TRUNCATE(precio, 0) AS 'Precio truncado' FROM producto;
 #11. Llista el codi dels fabricants que tenen productes en la taula "producto".
-SELECT f.codigo AS 'Código de fabricante' FROM producto AS p INNER JOIN fabricante AS f ON p.codigo_fabricante = f.codigo;
-
+SELECT codigo FROM fabricante WHERE codigo IN(SELECT codigo_fabricante FROM producto);
 #12. Llista el codi dels fabricants que tenen productes en la taula "producto", eliminant els codis que apareixen repetits.
-SELECT DISTINCT f.codigo AS 'Código de fabricante' FROM producto AS p INNER JOIN fabricante AS f ON p.codigo_fabricante = f.codigo;
+SELECT codigo FROM fabricante WHERE codigo IN(SELECT DISTINCT codigo_fabricante FROM producto);
 #13. Llista els noms dels fabricants ordenats de manera ascendent.
 SELECT nombre AS 'Nombre fabricante' FROM fabricante ORDER BY nombre ASC;
 #14. Llista els noms dels fabricants ordenats de manera descendent.
@@ -72,6 +71,8 @@ SELECT DISTINCT f.codigo AS 'Código fabricante', f.nombre AS 'Fabricante' FROM 
 SELECT f.nombre AS 'Fabricante', p.nombre AS 'Producto' FROM fabricante AS f LEFT JOIN producto AS p ON p.codigo_fabricante = f.codigo;
 #35. Retorna un llistat on només apareguin aquells fabricants que no tenen cap producte associat.
 SELECT f.nombre AS 'Fabricante', p.nombre AS 'Producto' FROM fabricante AS f LEFT JOIN producto AS p ON p.codigo_fabricante = f.codigo WHERE p.nombre IS NULL;
+# Opcion NOT EXISTS
+SELECT * FROM fabricante f WHERE NOT EXISTS( SELECT * FROM producto p WHERE f.codigo = p.codigo_fabricante);
 #36. Retorna tots els productes del fabricant Lenovo. (Sense utilitzar INNER JOIN).
 	# Utilizo una subconsulta
 SELECT p.nombre AS 'Productos Lenovo' FROM producto AS p WHERE p.codigo_fabricante = (SELECT f.codigo FROM fabricante AS f WHERE f.nombre = 'Lenovo');
