@@ -98,6 +98,7 @@ INSERT INTO persona VALUES (21, '79089577Y', 'Juan', 'Gutiérrez', 'López', 'Al
 INSERT INTO persona VALUES (22, '41491230N', 'Antonio', 'Domínguez', 'Guerrero', 'Almería', 'C/ Cabo de Gata', '626652498', '1999/02/11', 'H', 'alumno');
 INSERT INTO persona VALUES (23, '64753215G', 'Irene', 'Hernández', 'Martínez', 'Almería', 'C/ Zapillo', '628452384', '1996/03/12', 'M', 'alumno');
 INSERT INTO persona VALUES (24, '85135690V', 'Sonia', 'Gea', 'Ruiz', 'Almería', 'C/ Mercurio', '678812017', '1995/04/13', 'M', 'alumno');
+INSERT INTO persona VALUES (25, '12345678A', 'Agregado', 'Profesor', 'recién', 'Almería', 'C/ Mercurio', '678812017', '1995/04/13', 'M', 'profesor');
  
 /* Profesor */
 INSERT INTO profesor VALUES (3, 1);
