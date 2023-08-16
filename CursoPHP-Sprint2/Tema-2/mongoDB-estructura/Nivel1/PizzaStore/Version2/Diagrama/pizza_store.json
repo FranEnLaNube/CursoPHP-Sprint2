@@ -102,10 +102,11 @@
                         {
                             "hackoladeMeta": {},
                             "isActivated": true,
-                            "type": "objectId",
+                            "type": "numeric",
                             "error": {},
                             "GUID": "68130ccd-c7d2-4386-b25b-37ac3f6403af",
                             "arrayItem": true,
+                            "id": "category_id",
                             "displayName": "category_id"
                         }
                     ],
@@ -869,9 +870,9 @@
     "dbVendor": "MongoDB",
     "appTarget": "MONGODB",
     "creationTS": "2023-08-15T13:03:45.980Z",
-    "GUID": "612987f7-284a-4484-93bb-d64744f1ac2e",
+    "GUID": "bba709fa-4fe4-4aa9-9f97-9ec2b42c31f4",
     "isLineageEnabled": false,
-    "lastModifTS": "2023-08-15T15:34:55.874Z",
+    "lastModifTS": "2023-08-16T11:11:16.867Z",
     "persistenceSchemaVersion": "6",
     "isCreatedByPlugin": true,
     "pluginInformation": {
