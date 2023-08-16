@@ -61,4 +61,32 @@ Escriu La funció isBitten () que retorna TRUE amb un 50% de probabilitat i FALS
 
 **Important**
 
-Consell: pot ser que la funció rand () et resulti útil.
+Consell: pot ser que la funció `rand()` et resulti útil.
+
+## Nivell 2
+## - Exercici 1
+Escriu una funció que determini la quantitat total a pagar per una trucada telefònica segons les següents premisses:
+- Tota trucada que duri menys de 3 minuts té un cost de 10 cèntims.
+- Cada minut addicional a partir dels 3 primers és un pas de comptador i costa 5 cèntims.
+
+## - Exercici 2
+Imagina que som a una botiga on es ven:
+- Xocolata: 1 euro
+- Xiclets: 0,50 euros
+- Caramels: 1,50 euros
+
+Implementa un programa que permeti afegir càlculs a un total de compres d'aquest tipus.
+Per exemple, que si comprem:
+
+2 xocolates, 1 de xiclets i 1 de caramels, tinguem un programa que permeti anar afegint els subtotals a un total, tal que així:
+
+`funció(2 xocolates) + funció(1 de xiclets) + funció(1 de carmels) = 2 + 0.5 + 1.5`
+
+Sent, per tant, el total, 4.
+## Nivell 3
+## - Exercici 1
+El sedàs d'Eratòstenes és un algoritme pensat per a trobar nombres primers dins d'un interval donat.
+
+Basant-te en la informació de l'enllaç adjunt, implementa el sedàs d'Eratòstenes dins d'una funció, de tal forma que puguem invocar la funció per a un número concret.
+
+Per saber més -> [Criba de Eratóstenes](https://es.wikipedia.org/wiki/Criba_de_Erat%C3%B3stenes).

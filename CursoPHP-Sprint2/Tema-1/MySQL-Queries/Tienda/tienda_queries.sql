@@ -1,21 +1,15 @@
 USE tienda;
 
-#1. Llista el nom de tots els productes que hi ha en la taula "producto".
-	# Podría hacer producto.nombre pero no es necesario ya que no hay un JOIN o dos tablas involucradas
 SELECT 
     nombre AS 'Productos'
 FROM
     producto;
 
-#2. Llista els noms i els preus de tots els productes de la taula "producto".
-	# También se puede fijar un alias sin AS:
 SELECT 
     nombre 'Producto', precio 'Precio'
 FROM
     producto;
 
-#3. Llista totes les columnes de la taula "producto".
-	# Para mostrar todos los campos de una tabla:
 SELECT 
     *
 FROM
@@ -23,8 +17,6 @@ FROM
 	# O si quiero mostrar las columnas que tiene junto con más info:
 SHOW COLUMNS FROM producto;
 
-#4. Llista el nom dels "productos", el preu en euros i el preu en dòlars nord-americans (USD).
-	# El ROUND funciona con dos parámetros, el valor a redondear (en este caso el valor que salga de la columna) y la cantidad de decimales que se quieren.
 SELECT 
     nombre AS 'Productos',
     precio AS 'Precio EUR',
@@ -78,8 +70,18 @@ FROM
     producto;
 
 #11. Llista el codi dels fabricants que tenen productes en la taula "producto".
-	#Selecciono solo los que cumplen con la condicion
-    # La palabra INNER se puede omitir
+	# Usando subconsultas
+SELECT 
+    codigo
+FROM
+    fabricante
+WHERE
+    codigo IN (SELECT 
+            codigo_fabricante
+        FROM
+            producto);    
+	# Usando INNER JOIN (la palabra INNER se puede omitir)
+		#Selecciono solo los que cumplen con la condicion
 SELECT 
     f.codigo AS 'Código de fabricante'
 FROM
@@ -88,7 +90,18 @@ FROM
     fabricante AS f ON p.codigo_fabricante = f.codigo;
 
 #12. Llista el codi dels fabricants que tenen productes en la taula "producto", eliminant els codis que apareixen repetits.
-	# Con DISTINCT traigo solo la primera aparición de registros iguales en todos los campos.
+	# Usando Subconsulta
+SELECT 
+    codigo
+FROM
+    fabricante
+WHERE
+    codigo IN (SELECT DISTINCT
+            codigo_fabricante
+        FROM
+            producto);
+    # Usando INNER JOIN
+		# Con DISTINCT traigo solo la primera aparición de registros iguales en todos los campos.
 SELECT DISTINCT
     f.codigo AS 'Código de fabricante'
 FROM
@@ -219,7 +232,7 @@ LIMIT 1;
 
 #26. Retorna una llista de tots els productes del fabricant Lenovo.
 SELECT 
-    p.nombre AS 'Productos Lenovo'
+    *
 FROM
     producto AS p
         INNER JOIN
@@ -229,7 +242,7 @@ WHERE
 
 #27. Retorna una llista de tots els productes del fabricant Crucial que tinguin un preu major que 200 €.
 SELECT 
-    p.nombre AS 'Productos Crucial de más de 200 €'
+    *
 FROM
     producto AS p
         INNER JOIN
@@ -239,7 +252,7 @@ WHERE
 
 #28. Retorna una llista amb tots els productes dels fabricants Asus, Hewlett-Packard i Seagate. Sense utilitzar l'operador IN.
 SELECT 
-    p.nombre AS 'Producto'
+    *
 FROM
     producto AS p
         INNER JOIN
@@ -251,7 +264,7 @@ WHERE
 
 #29. Retorna un llistat amb tots els productes dels fabricants Asus, Hewlett-Packard i Seagate. Usant l'operador IN.
 SELECT 
-    p.nombre AS 'Producto'
+    *
 FROM
     producto AS p
         INNER JOIN
@@ -303,27 +316,40 @@ FROM
 #34. Retorna un llistat de tots els fabricants que existeixen en la base de dades, juntament amb els productes que té cadascun d'ells. El llistat haurà de mostrar també aquells fabricants que no tenen productes associats.
 	# Traigo todos los productos de fabricante y su unión con productos
 SELECT 
-    f.nombre AS 'Fabricante', p.nombre AS 'Producto'
+    *
 FROM
     fabricante AS f
         LEFT JOIN
     producto AS p ON p.codigo_fabricante = f.codigo;
 
 #35. Retorna un llistat on només apareguin aquells fabricants que no tenen cap producte associat.
+	# Opcion con LEFT JOIN
 	# Filtro los resultados que no tienen vinculación
 SELECT 
-    f.nombre AS 'Fabricante', p.nombre AS 'Producto'
+    *
 FROM
     fabricante AS f
         LEFT JOIN
     producto AS p ON p.codigo_fabricante = f.codigo
 WHERE
     p.nombre IS NULL;
+    # Opción con NOT EXISTS
+SELECT 
+    *
+FROM
+    fabricante f
+WHERE
+    NOT EXISTS( SELECT 
+            *
+        FROM
+            producto p
+        WHERE
+            f.codigo = p.codigo_fabricante);
 
 #36. Retorna tots els productes del fabricant Lenovo. (Sense utilitzar INNER JOIN).
 	# Utilizo una subconsulta
 SELECT 
-    p.nombre AS 'Productos Lenovo'
+	*
 FROM
     producto AS p
 WHERE
@@ -335,7 +361,7 @@ WHERE
             f.nombre = 'Lenovo');
 
 #37. Retorna totes les dades dels productes que tenen el mateix preu que el producte més car del fabricant Lenovo. (Sense fer servir INNER JOIN).
-	#Empleando subconsultas
+	# Empleando subconsultas
 SELECT 
     *
 FROM
@@ -434,7 +460,7 @@ WHERE
 	# Obtengo el más caro de Lenovo con la consulta del #38 y la uso en el WHERE del SELECT p.nombre
     # También se pueden usar las alternativas del #38
 SELECT 
-    p.nombre 'Productos igual o más caros que Lenovo'
+    *
 FROM
     producto p
 WHERE

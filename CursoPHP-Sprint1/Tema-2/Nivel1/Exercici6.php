@@ -10,7 +10,7 @@
 <?php 
 function isBitten()
 {
-    return rand(0,1) ? 'TRUE': 'FALSE';
+    return  var_dump((bool)rand(0,1));
 }
 echo isBitten();
 
