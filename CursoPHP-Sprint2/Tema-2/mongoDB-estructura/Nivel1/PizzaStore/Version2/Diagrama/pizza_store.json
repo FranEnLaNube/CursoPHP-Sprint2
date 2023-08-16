@@ -1,0 +1,970 @@
+{
+    "modelName": "New Model",
+    "collections": [
+        {
+            "collectionName": "products",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "name",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "533c4bea-9bd5-479c-a21e-38a1c897157e",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "description",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "b936fb4e-b856-43c8-85d6-5d80956b300a",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "type",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "dd1a1a4c-348c-4a07-873e-67c68fb46c56",
+                    "enum": [
+                        "pizza",
+                        "burger",
+                        "drink"
+                    ],
+                    "required": true,
+                    "error": {
+                        "enum": false,
+                        "enums": [
+                            false,
+                            false,
+                            false
+                        ],
+                        "exampleItems": [
+                            false,
+                            false,
+                            false
+                        ]
+                    }
+                },
+                {
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "33f2ae99-1057-4769-a7fd-29ac69c01674",
+                    "name": "image",
+                    "description": "Url to the image",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "price",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "primaryKey": false,
+                    "GUID": "a0d529ef-c846-4ac8-99b9-f2cdc24e1b15",
+                    "mode": "double",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "_id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "65d3e2bb-3f5a-4025-afcc-47eb8158fa04",
+                    "id": "_id",
+                    "required": true,
+                    "primaryKey": true,
+                    "error": {},
+                    "childRelationships": [
+                        "c104f5c4-34de-44a8-bcde-c4913f4ea8e6"
+                    ]
+                },
+                {
+                    "name": "pizza_category",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "array",
+                    "properties": [
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "a6dff998-17c9-4fca-894a-8f7516028f96",
+                            "arrayItem": true,
+                            "displayName": "name",
+                            "error": {}
+                        },
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "objectId",
+                            "error": {},
+                            "GUID": "68130ccd-c7d2-4386-b25b-37ac3f6403af",
+                            "arrayItem": true,
+                            "displayName": "category_id"
+                        }
+                    ],
+                    "additionalItems": true,
+                    "error": {},
+                    "GUID": "a4e47fe5-88d5-4133-8d81-0fe0fd247e33"
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "0c96f539-bec6-4a51-b01d-4836c2322c63"
+            },
+            "isActivated": true,
+            "additionalProperties": true,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "38ce3b15-6fe5-460c-a5f8-6edb31a93988",
+            "hackoladeMeta": {
+                "namingConvention": ""
+            },
+            "code": "products",
+            "bucketId": "9ac754af-aae3-4820-8f47-7068a644733f",
+            "error": {}
+        },
+        {
+            "collectionName": "orders",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "products",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "array",
+                    "properties": [
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "array",
+                            "properties": [
+                                {
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "numeric",
+                                    "GUID": "356d1f2d-2423-4893-9864-42540051940e",
+                                    "arrayItem": true,
+                                    "displayName": "quantity",
+                                    "default": 0,
+                                    "error": {}
+                                },
+                                {
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "objectId",
+                                    "GUID": "fe414091-943b-4ff6-b759-f9bea417254c",
+                                    "arrayItem": true,
+                                    "displayName": "product_id",
+                                    "foreignCollection": "38ce3b15-6fe5-460c-a5f8-6edb31a93988",
+                                    "foreignField": [
+                                        "38ce3b15-6fe5-460c-a5f8-6edb31a93988",
+                                        "65d3e2bb-3f5a-4025-afcc-47eb8158fa04"
+                                    ],
+                                    "relationshipType": "Foreign Key",
+                                    "parentRelationship": "c104f5c4-34de-44a8-bcde-c4913f4ea8e6",
+                                    "error": {}
+                                }
+                            ],
+                            "additionalItems": true,
+                            "error": {},
+                            "GUID": "d04c173d-b5b7-4927-9989-cea629e368b2",
+                            "arrayItem": true
+                        },
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "array",
+                            "properties": [
+                                {
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "numeric",
+                                    "GUID": "b7fd078c-661d-402d-956a-866b2e4b2d2e",
+                                    "arrayItem": true,
+                                    "displayName": "quantity",
+                                    "default": 0,
+                                    "error": {}
+                                },
+                                {
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "objectId",
+                                    "GUID": "23c4b6f7-c6ca-43b9-9134-e8253984de59",
+                                    "arrayItem": true,
+                                    "displayName": "product_id",
+                                    "error": {}
+                                }
+                            ],
+                            "additionalItems": true,
+                            "error": {},
+                            "GUID": "e3a871b0-3b27-4d2b-876e-b51eec888013",
+                            "arrayItem": true
+                        }
+                    ],
+                    "additionalItems": true,
+                    "GUID": "4adda25d-855c-4b29-82c4-efd1b60da817",
+                    "error": {}
+                },
+                {
+                    "name": "delivery_details",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "array",
+                    "properties": [
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "4f20bd15-c0ba-4c62-ba54-5f85ed2512df",
+                            "arrayItem": true,
+                            "displayName": "caddy_id",
+                            "foreignCollection": "c0594455-3aff-4b91-ac5a-8f0a22792ff9",
+                            "foreignField": [
+                                "c0594455-3aff-4b91-ac5a-8f0a22792ff9",
+                                "95f45135-59a1-4632-8c48-dc335af242b9"
+                            ],
+                            "relationshipType": "Foreign Key",
+                            "parentRelationship": "8f1474fb-2e59-4f51-b582-2ec23528db54",
+                            "error": {}
+                        },
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "6e1c1e3d-0b62-4691-a5da-fef2729e9d3c",
+                            "arrayItem": true,
+                            "primaryKey": false,
+                            "format": "date",
+                            "displayName": "delivery_time",
+                            "error": {}
+                        }
+                    ],
+                    "additionalItems": true,
+                    "GUID": "314af829-bee6-4921-b5fd-77354d7d39e5",
+                    "description": "If this field is present, the order is for delivery",
+                    "error": {}
+                },
+                {
+                    "name": "order_date",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "0c4fcfca-8dcc-46cf-972f-bf592d09f599",
+                    "format": "date-time",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "_id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "812cba2e-e006-45b3-b57a-0d8f21d9d9c5",
+                    "id": "_id",
+                    "required": true,
+                    "primaryKey": true,
+                    "error": {}
+                },
+                {
+                    "name": "client",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "array",
+                    "properties": [
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "7976d5a2-6c13-4a3c-9a41-42a5ac688811",
+                            "arrayItem": true,
+                            "displayName": "last_name",
+                            "error": {}
+                        },
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "error": {},
+                            "GUID": "c9837921-def0-4481-95ad-79f60d872cf2",
+                            "arrayItem": true,
+                            "displayName": "address"
+                        },
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "365cb092-87ff-4e43-be23-73d08f409412",
+                            "arrayItem": true,
+                            "displayName": "name",
+                            "error": {}
+                        },
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "a3c03538-eac6-4bc4-b91c-dab7b80e8644",
+                            "arrayItem": true,
+                            "displayName": "city",
+                            "error": {}
+                        },
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "string",
+                            "GUID": "35e072de-32d4-4b26-ad11-c2d4c2973e3c",
+                            "arrayItem": true,
+                            "displayName": "province",
+                            "error": {}
+                        },
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "numeric",
+                            "GUID": "cdb164e4-4b12-4aad-9a28-fded711efa5d",
+                            "arrayItem": true,
+                            "displayName": "phone",
+                            "error": {}
+                        }
+                    ],
+                    "additionalItems": true,
+                    "GUID": "4b5c085d-3813-4a4d-b8a5-cd32e9c0107b",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "store_id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "47549174-faec-4109-acf3-e6c144afbd5e",
+                    "required": true,
+                    "foreignCollection": "44658d53-1ae5-4add-8257-44913cbffa37",
+                    "foreignField": [
+                        "44658d53-1ae5-4add-8257-44913cbffa37",
+                        "c4106bdd-37c3-412f-a7c9-f31d3c91dcd1"
+                    ],
+                    "relationshipType": "Foreign Key",
+                    "parentRelationship": "f91487a0-cad4-4eb0-a6c2-a544b9ec3e35",
+                    "error": {}
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "19b2d123-605c-4c8d-9035-d5869f993f1e"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "26a71134-2c0e-4198-9d26-d308052f2b7a",
+            "id": "_id",
+            "bucketId": "9ac754af-aae3-4820-8f47-7068a644733f"
+        },
+        {
+            "collectionName": "stores",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "province",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "0b912f7a-5fa1-4e93-a6b5-a27c871e7dc1",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "city",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "e38ef6ef-8e03-454c-b9ee-4536cf57f9e0",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "zip",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "e0f51ef2-8ca9-4623-91ca-890b2be2b805",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "address",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "3191db51-8893-4216-a95b-569892526b1e",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "_id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "c4106bdd-37c3-412f-a7c9-f31d3c91dcd1",
+                    "required": true,
+                    "primaryKey": true,
+                    "error": {},
+                    "childRelationships": [
+                        "f91487a0-cad4-4eb0-a6c2-a544b9ec3e35",
+                        "55a464d6-5288-4fea-801b-984e8a629dea"
+                    ]
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "c94e71ea-0053-49fe-9b75-6a1e2115ac6a"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "44658d53-1ae5-4add-8257-44913cbffa37",
+            "bucketId": "9ac754af-aae3-4820-8f47-7068a644733f"
+        },
+        {
+            "collectionName": "employees",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "store_id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "4736abd3-5e76-4a5a-8941-e7798586b81c",
+                    "required": true,
+                    "foreignCollection": "44658d53-1ae5-4add-8257-44913cbffa37",
+                    "foreignField": [
+                        "44658d53-1ae5-4add-8257-44913cbffa37",
+                        "c4106bdd-37c3-412f-a7c9-f31d3c91dcd1"
+                    ],
+                    "relationshipType": "Foreign Key",
+                    "parentRelationship": "55a464d6-5288-4fea-801b-984e8a629dea",
+                    "error": {}
+                },
+                {
+                    "name": "position",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "error": {
+                        "enum": false,
+                        "enums": [
+                            false,
+                            false
+                        ],
+                        "exampleItems": [
+                            false,
+                            false
+                        ]
+                    },
+                    "required": true,
+                    "GUID": "5b4b4b64-cd99-449a-bca4-b7320459098b",
+                    "enum": [
+                        "cook",
+                        "caddy"
+                    ]
+                },
+                {
+                    "name": "phone",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "GUID": "cb06307c-eb68-4356-841f-f680ad84eee3",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "NIF",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "3c128e32-ab80-4de7-a988-863296ae3631",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "last_name",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "3dfe3f48-bb28-4246-a22e-6e6c5bac4c0d",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "name",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "ed933e77-1388-4bcc-812a-c708eeadf898",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "_id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "95f45135-59a1-4632-8c48-dc335af242b9",
+                    "required": true,
+                    "primaryKey": true,
+                    "error": {},
+                    "childRelationships": [
+                        "8f1474fb-2e59-4f51-b582-2ec23528db54"
+                    ]
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "f5a9e091-49f5-4e8b-bf0d-f5e098483159"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "c0594455-3aff-4b91-ac5a-8f0a22792ff9",
+            "bucketId": "9ac754af-aae3-4820-8f47-7068a644733f"
+        }
+    ],
+    "buckets": [
+        {
+            "name": "pizza_store",
+            "type": "bucket",
+            "collectionIds": [
+                "38ce3b15-6fe5-460c-a5f8-6edb31a93988",
+                "26a71134-2c0e-4198-9d26-d308052f2b7a",
+                "44658d53-1ae5-4add-8257-44913cbffa37",
+                "c0594455-3aff-4b91-ac5a-8f0a22792ff9"
+            ],
+            "backgroundColor": {
+                "r": 216,
+                "g": 0,
+                "b": 115,
+                "a": 1
+            },
+            "show": true,
+            "isActivated": true,
+            "GUID": "9ac754af-aae3-4820-8f47-7068a644733f",
+            "hackoladeMeta": {}
+        }
+    ],
+    "views": [],
+    "relationships": [
+        {
+            "name": "fk orders.products.[0].[1] to products._id",
+            "relationshipType": "Foreign Key",
+            "parentField": [
+                [
+                    "38ce3b15-6fe5-460c-a5f8-6edb31a93988",
+                    "65d3e2bb-3f5a-4025-afcc-47eb8158fa04"
+                ]
+            ],
+            "parentCardinality": "1",
+            "childField": [
+                [
+                    "26a71134-2c0e-4198-9d26-d308052f2b7a",
+                    "4adda25d-855c-4b29-82c4-efd1b60da817",
+                    "d04c173d-b5b7-4927-9989-cea629e368b2",
+                    "fe414091-943b-4ff6-b759-f9bea417254c"
+                ]
+            ],
+            "isActivated": true,
+            "childCardinality": "1",
+            "GUID": "c104f5c4-34de-44a8-bcde-c4913f4ea8e6",
+            "parentCollection": "38ce3b15-6fe5-460c-a5f8-6edb31a93988",
+            "childCollection": "26a71134-2c0e-4198-9d26-d308052f2b7a",
+            "hackoladeStyles": {
+                "GUID": "ab5ae87a-e8d0-4936-832e-39a931d94bc7",
+                "autoPositioning": false,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1887.4000244140625,
+                        "y": 1190.0735294117646
+                    },
+                    {
+                        "x": 1952.4000244140625,
+                        "y": 1190.0735294117646
+                    },
+                    {
+                        "x": 1952.4000244140625,
+                        "y": 1742.0735294117646
+                    },
+                    {
+                        "x": 1879,
+                        "y": 1742.0735294117646
+                    }
+                ],
+                "sides": [
+                    "right",
+                    "right"
+                ]
+            }
+        },
+        {
+            "name": "fk orders.store_id to store._id",
+            "relationshipType": "Foreign Key",
+            "parentField": [
+                [
+                    "44658d53-1ae5-4add-8257-44913cbffa37",
+                    "c4106bdd-37c3-412f-a7c9-f31d3c91dcd1"
+                ]
+            ],
+            "parentCardinality": "1",
+            "childField": [
+                [
+                    "26a71134-2c0e-4198-9d26-d308052f2b7a",
+                    "47549174-faec-4109-acf3-e6c144afbd5e"
+                ]
+            ],
+            "isActivated": true,
+            "childCardinality": "1..n",
+            "GUID": "f91487a0-cad4-4eb0-a6c2-a544b9ec3e35",
+            "parentCollection": "44658d53-1ae5-4add-8257-44913cbffa37",
+            "childCollection": "26a71134-2c0e-4198-9d26-d308052f2b7a",
+            "hackoladeStyles": {
+                "GUID": "331ae0b3-13d5-4b48-bb35-a913b6e00d9e",
+                "autoPositioning": false,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1588.4000244140625,
+                        "y": 1463.0735294117646
+                    },
+                    {
+                        "x": 1543.4000244140625,
+                        "y": 1463.0735294117646
+                    },
+                    {
+                        "x": 1543.4000244140625,
+                        "y": 1603.1735049977021
+                    },
+                    {
+                        "x": 1422.4000244140625,
+                        "y": 1603.1735049977021
+                    }
+                ],
+                "sides": [
+                    "left",
+                    "right"
+                ]
+            }
+        },
+        {
+            "name": "fk orders.delivery_details.[0] to employees._id",
+            "relationshipType": "Foreign Key",
+            "parentField": [
+                [
+                    "c0594455-3aff-4b91-ac5a-8f0a22792ff9",
+                    "95f45135-59a1-4632-8c48-dc335af242b9"
+                ]
+            ],
+            "parentCardinality": "1",
+            "childField": [
+                [
+                    "26a71134-2c0e-4198-9d26-d308052f2b7a",
+                    "314af829-bee6-4921-b5fd-77354d7d39e5",
+                    "4f20bd15-c0ba-4c62-ba54-5f85ed2512df"
+                ]
+            ],
+            "isActivated": true,
+            "childCardinality": "1..n",
+            "GUID": "8f1474fb-2e59-4f51-b582-2ec23528db54",
+            "parentCollection": "c0594455-3aff-4b91-ac5a-8f0a22792ff9",
+            "childCollection": "26a71134-2c0e-4198-9d26-d308052f2b7a",
+            "hackoladeStyles": {
+                "GUID": "c8ea3dd7-bb45-4edd-b110-4a4c5f5d700a",
+                "autoPositioning": true,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1588.4000244140625,
+                        "y": 1281.5735294117646
+                    },
+                    {
+                        "x": 1507.4000244140625,
+                        "y": 1281.5735294117646
+                    },
+                    {
+                        "x": 1507.4000244140625,
+                        "y": 1180.1735049977021
+                    },
+                    {
+                        "x": 1426.4000244140625,
+                        "y": 1180.1735049977021
+                    }
+                ],
+                "sides": [
+                    "left",
+                    "right"
+                ]
+            }
+        },
+        {
+            "name": "fk employees.store_id to stores._id",
+            "relationshipType": "Foreign Key",
+            "parentField": [
+                [
+                    "44658d53-1ae5-4add-8257-44913cbffa37",
+                    "c4106bdd-37c3-412f-a7c9-f31d3c91dcd1"
+                ]
+            ],
+            "parentCardinality": "1",
+            "childField": [
+                [
+                    "c0594455-3aff-4b91-ac5a-8f0a22792ff9",
+                    "4736abd3-5e76-4a5a-8941-e7798586b81c"
+                ]
+            ],
+            "isActivated": true,
+            "childCardinality": "1..n",
+            "GUID": "55a464d6-5288-4fea-801b-984e8a629dea",
+            "parentCollection": "44658d53-1ae5-4add-8257-44913cbffa37",
+            "childCollection": "c0594455-3aff-4b91-ac5a-8f0a22792ff9",
+            "hackoladeStyles": {
+                "GUID": "37024843-5061-414b-91ef-62d43dab5df3",
+                "autoPositioning": true,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1325.4000244140625,
+                        "y": 1259.6735049977021
+                    },
+                    {
+                        "x": 1325.4000244140625,
+                        "y": 1400.6735049977021
+                    },
+                    {
+                        "x": 1325.4000244140625,
+                        "y": 1400.6735049977021
+                    },
+                    {
+                        "x": 1325.4000244140625,
+                        "y": 1541.6735049977021
+                    }
+                ],
+                "sides": [
+                    "bottom",
+                    "top"
+                ]
+            }
+        }
+    ],
+    "users": [],
+    "diagramViews": [],
+    "idToNameHashTable": {
+        "38ce3b15-6fe5-460c-a5f8-6edb31a93988": "products",
+        "9ac754af-aae3-4820-8f47-7068a644733f": "pizza_store",
+        "65d3e2bb-3f5a-4025-afcc-47eb8158fa04": "_id",
+        "a0d529ef-c846-4ac8-99b9-f2cdc24e1b15": "price",
+        "533c4bea-9bd5-479c-a21e-38a1c897157e": "name",
+        "33f2ae99-1057-4769-a7fd-29ac69c01674": "image",
+        "b936fb4e-b856-43c8-85d6-5d80956b300a": "description",
+        "dd1a1a4c-348c-4a07-873e-67c68fb46c56": "type",
+        "26a71134-2c0e-4198-9d26-d308052f2b7a": "orders",
+        "812cba2e-e006-45b3-b57a-0d8f21d9d9c5": "_id",
+        "4b5c085d-3813-4a4d-b8a5-cd32e9c0107b": "client",
+        "4adda25d-855c-4b29-82c4-efd1b60da817": "products",
+        "c104f5c4-34de-44a8-bcde-c4913f4ea8e6": "fk orders.products.[0].[1] to products._id",
+        "314af829-bee6-4921-b5fd-77354d7d39e5": "delivery_details",
+        "0c4fcfca-8dcc-46cf-972f-bf592d09f599": "order_date",
+        "a4e47fe5-88d5-4133-8d81-0fe0fd247e33": "pizza_category",
+        "47549174-faec-4109-acf3-e6c144afbd5e": "store_id",
+        "44658d53-1ae5-4add-8257-44913cbffa37": "stores",
+        "c4106bdd-37c3-412f-a7c9-f31d3c91dcd1": "_id",
+        "3191db51-8893-4216-a95b-569892526b1e": "address",
+        "e0f51ef2-8ca9-4623-91ca-890b2be2b805": "zip",
+        "e38ef6ef-8e03-454c-b9ee-4536cf57f9e0": "city",
+        "0b912f7a-5fa1-4e93-a6b5-a27c871e7dc1": "province",
+        "f91487a0-cad4-4eb0-a6c2-a544b9ec3e35": "fk orders.store_id to store._id",
+        "c0594455-3aff-4b91-ac5a-8f0a22792ff9": "employees",
+        "95f45135-59a1-4632-8c48-dc335af242b9": "_id",
+        "ed933e77-1388-4bcc-812a-c708eeadf898": "name",
+        "3dfe3f48-bb28-4246-a22e-6e6c5bac4c0d": "last_name",
+        "3c128e32-ab80-4de7-a988-863296ae3631": "NIF",
+        "cb06307c-eb68-4356-841f-f680ad84eee3": "phone",
+        "5b4b4b64-cd99-449a-bca4-b7320459098b": "position",
+        "8f1474fb-2e59-4f51-b582-2ec23528db54": "fk orders.delivery_details.[0] to employees._id",
+        "4736abd3-5e76-4a5a-8941-e7798586b81c": "store_id",
+        "55a464d6-5288-4fea-801b-984e8a629dea": "fk employees.store_id to stores._id"
+    },
+    "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "bdd3bc22-41fe-49d8-a72c-0e60ac1a4731"
+    },
+    "polyglotDefinitions": {
+        "type": "polyglotDefinitions",
+        "properties": [],
+        "GUID": "0dfe4a97-2bd9-47e2-9f64-d98fb8eef807"
+    },
+    "externalDefinitions": {
+        "type": "externalDefinitions",
+        "properties": [],
+        "GUID": "736ec06e-d799-469d-b174-efb71a6ad021"
+    },
+    "sources": [],
+    "decorativeSymbols": [],
+    "dbVersion": "v5.0",
+    "dbVendor": "MongoDB",
+    "appTarget": "MONGODB",
+    "creationTS": "2023-08-15T13:03:45.980Z",
+    "GUID": "612987f7-284a-4484-93bb-d64744f1ac2e",
+    "isLineageEnabled": false,
+    "lastModifTS": "2023-08-15T15:34:55.874Z",
+    "persistenceSchemaVersion": "6",
+    "isCreatedByPlugin": true,
+    "pluginInformation": {
+        "pluginEngineVersion": "1.0.0"
+    },
+    "applicationInformation": {
+        "version": "6.10.16"
+    },
+    "hackoladeMeta": {},
+    "settings": {
+        "centralPane": {
+            "dbLevel": {
+                "erd": [
+                    {
+                        "GUID": "38ce3b15-6fe5-460c-a5f8-6edb31a93988",
+                        "x": 1602,
+                        "y": 1693.0735294117646,
+                        "width": 277,
+                        "height": 200,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "26a71134-2c0e-4198-9d26-d308052f2b7a",
+                        "x": 1588.4000244140625,
+                        "y": 1085.0735294117646,
+                        "width": 299,
+                        "height": 393,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "44658d53-1ae5-4add-8257-44913cbffa37",
+                        "x": 1228.4000244140625,
+                        "y": 1541.6735049977021,
+                        "width": 194,
+                        "height": 123,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "c0594455-3aff-4b91-ac5a-8f0a22792ff9",
+                        "x": 1224.4000244140625,
+                        "y": 1100.6735049977021,
+                        "width": 202,
+                        "height": 159,
+                        "color": {}
+                    }
+                ],
+                "erdDefinitions": {
+                    "erd": [],
+                    "rootPath": [],
+                    "entities": [],
+                    "decorativeSymbols": []
+                },
+                "buckets": [
+                    {
+                        "x": 1184.4000244140625,
+                        "y": 1045.0735294117646,
+                        "GUID": "9ac754af-aae3-4820-8f47-7068a644733f"
+                    }
+                ],
+                "collapsedNodes": [],
+                "activeRelationship": "",
+                "activeRelationshipFields": {
+                    "childField": [],
+                    "parentField": []
+                },
+                "selectedCollections": [],
+                "displayColorPicker": false,
+                "graphView": {
+                    "erd": [],
+                    "buckets": [],
+                    "decorativeSymbols": [],
+                    "forceLayout": true,
+                    "defaultLinkLength": 300
+                },
+                "diagramViews": [],
+                "decorativeSymbols": [],
+                "nestedCollectionsLayout": "horizontal",
+                "options": [
+                    {
+                        "autoWidth": false,
+                        "autoHeight": false,
+                        "GUID": "38ce3b15-6fe5-460c-a5f8-6edb31a93988"
+                    }
+                ],
+                "relationshipUpdateDisabled": false,
+                "displayOptions": {}
+            },
+            "collectionLevel": {},
+            "changed": false
+        },
+        "dtDiagram": {
+            "collapsedNodes": [],
+            "shouldDistributeCollections": false
+        }
+    }
+}
