@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "64db9ca2b65156bd1cacf270"
+  },
+  "store_id": "64db9d66b65156bd1cacf272",
+  "position": "cook",
+  "name": "name_emp_1",
+  "last_name": "last_name_emp_1",
+  "NIF": "nif_emp_1",
+  "phone": "phone_emp_1"
+},
+{
+  "_id": {
+    "$oid": "64dba0a6b65156bd1cacf280"
+  },
+  "store_id": "64db9d66b65156bd1cacf272",
+  "position": "caddy",
+  "name": "name_emp_2",
+  "last_name": "last_name_emp_2",
+  "NIF": "nif_emp_2",
+  "phone": "phone_emp_2"
+}]

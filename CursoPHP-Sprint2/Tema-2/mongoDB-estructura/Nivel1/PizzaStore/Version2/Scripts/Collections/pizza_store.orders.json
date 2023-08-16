@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "64db962db65156bd1cacf26d"
+  },
+  "client": {
+    "name": "client_1",
+    "last_name": "last_name1",
+    "address": "address_client_1",
+    "zip": "zip_client_1",
+    "city": "city_client_1",
+    "province": "province_client_1",
+    "phone": 555555550
+  },
+  "products": [
+    {
+      "quantity": 1,
+      "product_id": "64db93cab65156bd1cacf267"
+    },
+    {
+      "quantity": 2,
+      "product_id": "64db9543b65156bd1cacf269"
+    },
+    {
+      "quantity": 3,
+      "product_id": "64db9e12b65156bd1cacf276"
+    }
+  ],
+  "delivery_details": {
+    "caddy_id": "64dba0a6b65156bd1cacf280",
+    "delivery_time": "2023-08-15T12:00:00Z"
+  },
+  "store_id": "64db9d66b65156bd1cacf272",
+  "order_date": "2023-08-15T10:00:00Z"
+},
+{
+  "_id": {
+    "$oid": "64dba05db65156bd1cacf27e"
+  },
+  "client": {
+    "name": "client_1",
+    "last_name": "last_name1",
+    "address": "address_client_1",
+    "zip": "zip_client_1",
+    "city": "city_client_1",
+    "province": "province_client_1",
+    "phone": 555555550
+  },
+  "products": {
+    "quantity": 3,
+    "product_id": "64db9e12b65156bd1cacf276"
+  },
+  "store_id": "64db9d66b65156bd1cacf272",
+  "order_date": "2023-08-15T08:00:00Z"
+}]

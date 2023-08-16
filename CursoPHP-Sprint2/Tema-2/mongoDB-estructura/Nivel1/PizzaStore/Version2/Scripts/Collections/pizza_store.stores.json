@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "64db9d66b65156bd1cacf272"
+  },
+  "address": "address_store_1",
+  "city": "city_store_1",
+  "province": "province_store_1",
+  "zip": "zip_store_1"
+}]
