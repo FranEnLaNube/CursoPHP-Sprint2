@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('alternatives', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('presi_vice')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

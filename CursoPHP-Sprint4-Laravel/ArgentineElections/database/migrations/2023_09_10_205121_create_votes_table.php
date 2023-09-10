@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('quantity');
+            $table->unsignedBigInteger('alternative_id');
+            $table->unsignedBigInteger('province_id');
+            $table->unsignedBigInteger('election_id');
             $table->timestamps();
+
+            // Define foreign key constraints
+            $table->foreign('election_id')->references('_id')->on('elections')->onDelete('cascade');
+            $table->foreign('province_id')->references('_id')->on('provinces')->onDelete('cascade');
+            $table->foreign('alternative_id')->references('_id')->on('alternatives')->onDelete('cascade');
         });
     }
 
