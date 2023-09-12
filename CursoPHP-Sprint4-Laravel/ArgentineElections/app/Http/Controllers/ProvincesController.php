@@ -12,7 +12,7 @@ class ProvincesController extends Controller
      */
     public function index()
     {
-        //
+        return view('entities.provinces.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class ProvincesController extends Controller
      */
     public function create()
     {
-        //
+        return view('entities.provinces.create');
     }
 
     /**

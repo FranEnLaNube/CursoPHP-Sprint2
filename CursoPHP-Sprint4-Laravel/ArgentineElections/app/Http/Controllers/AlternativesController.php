@@ -12,7 +12,7 @@ class AlternativesController extends Controller
      */
     public function index()
     {
-        //
+        return view('entities.alternatives.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class AlternativesController extends Controller
      */
     public function create()
     {
-        //
+        return view('entities.alternatives.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class AlternativesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**
@@ -52,7 +52,7 @@ class AlternativesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
     }
 
     /**

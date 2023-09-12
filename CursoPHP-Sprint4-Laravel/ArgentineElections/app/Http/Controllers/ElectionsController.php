@@ -12,7 +12,7 @@ class ElectionsController extends Controller
      */
     public function index()
     {
-        //
+        return view('entities.elections.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class ElectionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('entities.elections.create');
     }
 
     /**
