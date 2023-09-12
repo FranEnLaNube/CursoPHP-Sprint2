@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('alternatives','App\Http\Controllers\AlternativesController');
+
+Route::resource('elections','App\Http\Controllers\ElectionsController');
+
+Route::resource('provinces','App\Http\Controllers\ProvincesController');
+
+Route::resource('votes','App\Http\Controllers\VotesController');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
