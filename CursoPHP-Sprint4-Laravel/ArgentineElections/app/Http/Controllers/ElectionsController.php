@@ -13,9 +13,18 @@ class ElectionsController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('entities.elections.index');
+{
+    $elections = Election::all();
+    $years = [];
+
+    foreach ($elections as $election) {
+        $year = strtotime($election->date);
+        $years[] = date("Y", $year);
     }
+
+    return view('entities.elections.index', compact('elections', 'years'));
+}
+
 
     /**
      * Show the form for creating a new resource.
