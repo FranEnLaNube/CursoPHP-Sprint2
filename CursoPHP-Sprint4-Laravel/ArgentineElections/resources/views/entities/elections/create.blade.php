@@ -2,9 +2,8 @@
 
 @section('content')
     <h2 class="text-2xl font-semibold text-center mt-10">Add an Alternative</h2>
-    <form action="/elections/store" method="POST" class="mt-auto mx-auto max-w-md space-y-4">
+    <form action="/elections" method="POST" class="mt-auto mx-auto max-w-md space-y-4">
         @csrf
-
         <div>
             <label for="date" class="block text-gray-700">Date of election</label>
             <input id="date" name="date" type="date"

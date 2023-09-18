@@ -1,9 +1,9 @@
 @extends('layouts.main-layout')
 
 @section('content')
-    <h2 class="text-2xl font-semibold text-center mt-10">Elections</h2>
-    <div class="mt-4 mx-auto p-20">
-        <table class="min-w-full border-collapse border">
+    <h2 class="text-2xl font-semibold text-center mt-6">Elections</h2>
+    <div class="mx-auto px-20 py-5">
+        <table class="min-w-full border-collapse border mt-4">
             <thead>
                 <tr>
                     <th
@@ -33,7 +33,7 @@
         </table>
     </div>
 
-    <div class="text-center mt-4">
-        <a href="/" class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">Back</a>
+    <div class="text-center">
+        <a href="/" class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 mb-4 rounded inline-block">Back</a>
     </div>
 @endsection
