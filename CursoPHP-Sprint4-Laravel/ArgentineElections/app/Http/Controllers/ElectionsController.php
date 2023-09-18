@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Election;
 use Illuminate\Http\Request;
+
 
 class ElectionsController extends Controller
 {
@@ -42,9 +44,10 @@ class ElectionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $year)
     {
-        //
+        $election = Election::whereYear('date',$year)->first();
+        return view('entities.elections.edit')->with(['election' => $election, 'year' => $year]);
     }
 
     /**
