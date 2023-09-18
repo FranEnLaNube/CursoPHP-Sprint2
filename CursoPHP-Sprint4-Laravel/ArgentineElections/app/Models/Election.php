@@ -9,17 +9,19 @@ class Election extends Model
 {
     use HasFactory;
     /**
-     * Define a one-to-many relationship with the Population model.
+     * Define the relationship between Election and Alternative through votes.
      */
-    public function populations()
+    public function elections_votes_alternatives()
     {
-        return $this->hasMany(Population::class);
+        return $this->belongsToMany(Alternative::class, 'votes')
+            ->withPivot('quantity'); // To get votes quantity in the relation
     }
     /**
-     * Define a one-to-many relationship with the Vote model.
+     * Define the relationship between Election and Province through votes.
      */
-    public function votes()
+    public function elections_votes_provinces()
     {
-        return $this->hasMany(Vote::class);
+        return $this->belongsToMany(Province::class, 'votes')
+            ->withPivot('quantity'); // To get votes quantity in the relation
     }
 }
