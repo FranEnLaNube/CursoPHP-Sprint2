@@ -71,7 +71,7 @@ class VotesController extends Controller
         $year = date('Y', strtotime($date));
 
         // Correct way to use routes:
-        return redirect(route('votes.findVotes', [$year, $vote->province_id, $vote->alternative_id]));
+        return redirect(route('votes.showVote', [$year, $vote->province_id, $vote->alternative_id]));
         //Old: return redirect('votes/{year}/{province_id}/{alternative_id}');
     }
 
