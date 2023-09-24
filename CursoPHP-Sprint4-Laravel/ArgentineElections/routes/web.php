@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ResultsController;
+use App\Http\Controllers\VotesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +25,16 @@ Route::resource('elections','App\Http\Controllers\ElectionsController');
 
 Route::resource('provinces','App\Http\Controllers\ProvincesController');
 
-Route::resource('votes','App\Http\Controllers\VotesController');
+Route::resource('votes', VotesController::class);
+
+// Show a particular register of a vote
+Route::get('votes/{election_id}/{province_id}/{alternative_id}', [VotesController::class, 'showVote'])->name('votes.showVote');
+
+// Delete/destroy a particular register of a vote
+Route::delete('votes/{election_id}/{province_id}/{alternative_id}', [VotesController::class, 'destroy'])->name('votes.destroy-votes');
+
+// Edit a particular register of a vote
+Route::get('votes/{year}/{province_id}/{alternative_id}/edit', [VotesController::class, 'edit'])->name('votes.edit');
 
 Route::middleware([
     'auth:sanctum',

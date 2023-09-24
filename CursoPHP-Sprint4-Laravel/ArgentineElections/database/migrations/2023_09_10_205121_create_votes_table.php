@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('votes', function (Blueprint $table) {
-            $table->id();
             $table->unsignedInteger('quantity');
             $table->unsignedBigInteger('alternative_id');
             $table->unsignedBigInteger('province_id');
@@ -20,9 +19,12 @@ return new class extends Migration
             $table->timestamps();
 
             // Define foreign key constraints
-            $table->foreign('election_id')->references('id')->on('elections')->onDelete('cascade');
-            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
-            $table->foreign('alternative_id')->references('id')->on('alternatives')->onDelete('cascade');
+            $table->primary(['election_id', 'province_id', 'alternative_id']);
+
+            // Define foreign key constraints
+            $table->foreign('election_id')->references('id')->on('elections');
+            $table->foreign('province_id')->references('id')->on('provinces');
+            $table->foreign('alternative_id')->references('id')->on('alternatives');
         });
     }
 
