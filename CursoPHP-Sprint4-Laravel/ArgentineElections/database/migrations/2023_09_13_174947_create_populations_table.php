@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('populations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('population');
+            $table->unsignedInteger('population')->nullable();
             $table->unsignedInteger('registered_voters');
             $table->unsignedBigInteger('province_id');
-            $table->unsignedBigInteger('election_id');
             $table->timestamps();
 
             // Define foreign key constraints
-            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
-            $table->foreign('election_id')->references('id')->on('elections')->onDelete('cascade');
+            $table->foreign('province_id')->references('id')->on('provinces');
         });
     }
 

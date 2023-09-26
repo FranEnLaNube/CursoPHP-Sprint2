@@ -15,11 +15,4 @@ class Population extends Model
     {
         return $this->belongsTo(Province::class, 'province_id', 'id');
     }
-    /**
-     * Define the relationship where Population belongs to an Election.
-     */
-    public function election()
-    {
-        return $this->belongsTo(Election::class, 'election_id', 'id');
-    }
 }
