@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ResultsController;
+use App\Http\Controllers\AlternativesController;
 use App\Http\Controllers\VotesController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('alternatives','App\Http\Controllers\AlternativesController');
+Route::resource('alternatives', AlternativesController::class);
 
 Route::resource('elections','App\Http\Controllers\ElectionsController');
 
