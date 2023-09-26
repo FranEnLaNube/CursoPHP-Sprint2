@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AlternativesController;
+use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\VotesController;
+use App\Models\Election;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,8 +24,8 @@ Route::get('/', function () {
 
 Route::resource('alternatives', AlternativesController::class);
 
-Route::resource('elections','App\Http\Controllers\ElectionsController');
-
+Route::resource('elections',ElectionController::class);
+//TODO ¿Delete provinces routes?
 Route::resource('provinces','App\Http\Controllers\ProvincesController');
 
 Route::resource('votes', VotesController::class);
@@ -36,6 +38,12 @@ Route::delete('votes/{election_id}/{province_id}/{alternative_id}', [VotesContro
 
 // Edit a particular register of a vote
 Route::get('votes/{year}/{province_id}/{alternative_id}/edit', [VotesController::class, 'edit'])->name('votes.edit');
+
+// ShowByYear
+Route::get('results/{year}', [ResultsController::class, 'showByYear'])->name('results.showByYear');
+
+//ShowByProvince
+Route::get('results/{year}/{province_id}', [ResultsController::class, 'showByProvince'])->name('results.showByProvince');
 
 Route::middleware([
     'auth:sanctum',

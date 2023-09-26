@@ -12,7 +12,7 @@
                 <option value="">Select Election Date</option>
                 @foreach ($elections as $election)
                     <option value="{{ $election->id }}" @if ($election->id == $vote->election->id) selected @endif>
-                        {{ $vote->election->date }}</option>
+                        {{ $election->date }}</option>
                 @endforeach
             </select>
         </div>
