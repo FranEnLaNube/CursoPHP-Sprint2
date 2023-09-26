@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Alternative;
+use App\Http\Controllers\Controller;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 
 class AlternativesController extends Controller
@@ -43,6 +44,9 @@ class AlternativesController extends Controller
     public function show(string $id)
     {
         $alternative = Alternative::find($id);
+        if (!$alternative) {
+            return abort(404); // TODO: Handle the case where the election is not found
+        }
 
         return view('entities.alternatives.show')->with('alternative', $alternative);
     }
@@ -67,18 +71,30 @@ class AlternativesController extends Controller
         $alternative->logo = $request->get('logo');
 
         $alternative->save();
-
         return redirect('/alternatives');
     }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+
+    public function destroy(Request $request, string $id)
     {
         $alternative = Alternative::find($id);
-
-        $alternative->destroy();
-
+        if (!$alternative) {
+            return abort(404); // TODO: Handle the case where the election is not found
+        }
+        if (!empty(Vote::where(['alternative_id' => $alternative->id])->first()->quantity)) {
+            if (!$request->has('confirm-delete')) {
+                // Si hay votos asociados, muestra el mensaje de error
+                return redirect()->back()->with('error', 'This alternative has votes associated. Are you sure you want to delete it? Confirm it by checking the box')
+                    ->with('id', $id);
+            }
+        }
+        //First delete de associated vote
+        // FIXME should be a better way to find by just one parameter
+        Vote::where(['alternative_id' => $alternative->id])->delete();
+        // Delete the alternative
+        $alternative->delete();
         return redirect('/alternatives');
     }
 }
