@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Election;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 
 
@@ -14,7 +15,7 @@ class ElectionsController extends Controller
      */
     public function index()
     {
-        $elections = Election::all();
+        $elections = Election::orderby('date', 'desc')->get();
         $years = [];
 
         foreach ($elections as $election) {
@@ -75,9 +76,23 @@ class ElectionsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $year)
+    public function destroy(Request $request, string $year)
     {
         $election = Election::whereYear('date', $year)->first();
+        if (!$election) {
+            return abort(404); // TODO: Handle the case where the election is not found
+        }
+        if (!empty(Vote::where(['election_id' => $election->id])->first()->quantity)) {
+            if (!$request->has('confirm-delete')) {
+                // If the alternative has associated votes it shows an error message
+                return redirect()->back()->with('error', 'This Election has votes associated. Are you sure you want to delete it? Confirm it by checking the box')
+                    ->with('year', $year);
+            }
+        }
+        //First delete the associated vote
+        // FIXME should be a better way to find by just one parameter
+        Vote::where(['election_id' => $election->id])->delete();
+        // Delete the election
         $election->delete();
         return redirect('/elections');
     }
