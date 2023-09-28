@@ -1,9 +1,9 @@
 @extends('layouts.main-layout')
 
 @section('content')
-    <h2 class="text-3xl font-semibold text-center mt-6 mb-4">{{ $year }} Election Results</h2>
+    <h2 class="text-3xl font-semibold text-center m-10">{{ $year }} Election Results</h2>
     <h3 class="text-2xl font-semibold text-center mb-4">{{ $province->name }} </h3>
-    <div class="border rounded pt-6 px-auto p-10 mt-auto mx-auto my-4 max-w-xl space-y-4">
+    <div class="border rounded pt-6 px-auto p-10 mt-auto mx-auto m-8 max-w-xl space-y-4">
 
         <table class="table-auto mx-auto ">
             <thead class="break-words px-3 py-3 bg-gray-200 text-left text-sm leading-4 font-bold text-gray-600 uppercase">
@@ -29,7 +29,7 @@
         </table>
     </div>
 
-    <div class="mt-4 text-center">
+    <div class="text-center">
         <a href="/" class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">Back</a>
     </div>
 @endsection
