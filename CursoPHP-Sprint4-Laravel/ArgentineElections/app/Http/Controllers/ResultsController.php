@@ -19,31 +19,30 @@ class ResultsController extends Controller
     {
         // Find elections with associated votes
         $electionsWithVotes = Election::has('elections_votes_alternatives')->get();
-        //$election = Election::whereYear('date', $year)->first();
-
+        //FIXME Change this method, the idea was show a different message if there is no any election in database
         $blankSpoiled = 2;
+        $electionYears = [];
         foreach ($electionsWithVotes as $electionWithVotes) {
-            $altQuantity = ($electionWithVotes->elections_votes_alternatives->first()->count() - $blankSpoiled);
+            $altQuantity = $electionWithVotes->elections_votes_alternatives->first()->count() - $blankSpoiled;
             if (date('Y', strtotime($electionWithVotes->date))) {
-                $year = date('Y', strtotime($electionWithVotes->date));
+                $electionYear = date('Y', strtotime($electionWithVotes->date));
                 $message = "In this election have participated " . $altQuantity . " parties";
             } else {
                 $year = "There are no elections yet.";
                 $votesLink = "{{<a href='/votes/create'>votes</a>}}";
                 $message = "Please add one in " . $votesLink . " section.";
             }
-            $electionData[$year] = $altQuantity;
+            $electionYears [] = $electionYear;
         }
-        $totalElections = count($electionData);
+        $totalElections = count($electionYears);
         $columns = 3; // Default columns number
-        if ($totalElections === 0) {
+        if ($totalElections === 0 || $totalElections === 1) {
             $columns = 1;
-        } elseif ($totalElections === 1) {
         } elseif ($totalElections === 2) {
             $columns = 2;
         }
-        return view('entities.results.index', compact(['electionData', 'columns', 'message']));
-
+        // Show view with all elections that have been found
+        return view('entities.results.index', compact(['electionYears', 'columns', 'message']));
     }
     /**
      * Display votes from a particular election.
