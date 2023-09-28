@@ -3,13 +3,47 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Alternative;
 use App\Models\Election;
 use App\Models\Province;
 use App\Models\Vote;
-
+use Illuminate\Validation\Rules\Exists;
 
 class ResultsController extends Controller
 {
+
+    /**
+     * Display available elections from database.
+     */
+    public function showElections()
+    {
+        // Find elections with associated votes
+        $electionsWithVotes = Election::has('elections_votes_alternatives')->get();
+        //FIXME Change this method, the idea was show a different message if there is no any election in database
+        $blankSpoiled = 2;
+        $electionYears = [];
+        foreach ($electionsWithVotes as $electionWithVotes) {
+            $altQuantity = $electionWithVotes->elections_votes_alternatives->first()->count() - $blankSpoiled;
+            if (date('Y', strtotime($electionWithVotes->date))) {
+                $electionYear = date('Y', strtotime($electionWithVotes->date));
+                $message = "In this election have participated " . $altQuantity . " parties";
+            } else {
+                $year = "There are no elections yet.";
+                $votesLink = "{{<a href='/votes/create'>votes</a>}}";
+                $message = "Please add one in " . $votesLink . " section.";
+            }
+            $electionYears [] = $electionYear;
+        }
+        $totalElections = count($electionYears);
+        $columns = 3; // Default columns number
+        if ($totalElections === 0 || $totalElections === 1) {
+            $columns = 1;
+        } elseif ($totalElections === 2) {
+            $columns = 2;
+        }
+        // Show view with all elections that have been found
+        return view('entities.results.index', compact(['electionYears', 'columns', 'message']));
+    }
     /**
      * Display votes from a particular election.
      */
@@ -20,7 +54,6 @@ class ResultsController extends Controller
         if (!$election) {
             return abort(404); // TODO: Handle the case where the election is not found
         }
-
 
         $provinces = Province::all();
         //Old logic. Provinces are always the same, we don't need to find the relation with votes
@@ -47,13 +80,12 @@ class ResultsController extends Controller
                     'alternative_id' => $alternative->id,
                 ])->first();
                 $provinceResults[$alternative->name] = $vote ? $vote->quantity : 0; // if the alternativa doesn't have, set 0
-
             }
             $results[$provinceName] = $provinceResults;
             $provincesId[$provinceName] = $province->id;
         }
         // TODO put results in a new folder entities/results
-        return view('entities.votes.show-election', compact('alternatives', 'provinces', 'year', 'results', 'provincesId'));
+        return view('entities.results.show-election', compact('alternatives', 'provinces', 'year', 'results', 'provincesId'));
     }
     /**
      * Display votes from a particular province in one election.
@@ -88,6 +120,6 @@ class ResultsController extends Controller
             $altIds[$altName] = $alternative->alternative->id;
         }
         arsort($votes);
-        return view('entities.votes.show-by-province', compact('year', 'province', 'votes', 'totalVotes', 'percents','altIds'));
+        return view('entities.results.show-by-province', compact('year', 'province', 'votes', 'totalVotes', 'percents', 'altIds'));
     }
 }

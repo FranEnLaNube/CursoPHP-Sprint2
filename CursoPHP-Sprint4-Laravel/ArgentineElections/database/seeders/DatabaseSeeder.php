@@ -12,6 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(AlternativesSeeder::class);
+        $this->call(ElectionsTableSeeder::class);
+        $this->call(ProvincesTableSeeder::class);
+        $this->call(Votes2019Seeder::class);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

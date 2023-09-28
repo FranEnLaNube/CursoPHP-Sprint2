@@ -45,7 +45,7 @@ class AlternativesController extends Controller
     {
         $alternative = Alternative::find($id);
         if (!$alternative) {
-            return abort(404); // TODO: Handle the case where the election is not found
+            return redirect('/alternatives/create')->with('error', 'We coudn\'t find this alternative, please create it');
         }
 
         return view('entities.alternatives.show')->with('alternative', $alternative);
@@ -81,16 +81,16 @@ class AlternativesController extends Controller
     {
         $alternative = Alternative::find($id);
         if (!$alternative) {
-            return abort(404); // TODO: Handle the case where the election is not found
+            return redirect('/alternatives/create')->with('error', 'We coudn\'t find this alternative, please create it');
         }
         if (!empty(Vote::where(['alternative_id' => $alternative->id])->first()->quantity)) {
             if (!$request->has('confirm-delete')) {
-                // Si hay votos asociados, muestra el mensaje de error
+                // If the alternative has associated votes it shows an error message
                 return redirect()->back()->with('error', 'This alternative has votes associated. Are you sure you want to delete it? Confirm it by checking the box')
                     ->with('id', $id);
             }
         }
-        //First delete de associated vote
+        //First delete the associated vote
         // FIXME should be a better way to find by just one parameter
         Vote::where(['alternative_id' => $alternative->id])->delete();
         // Delete the alternative

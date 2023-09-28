@@ -2,6 +2,9 @@
 
 @section('content')
     <h2 class="text-2xl font-semibold text-center m-10">Add an Alternative</h2>
+    @if (session('error'))
+    <p class="mx-auto max-w-md border border-red-500 text-red-500">{{ session('error') }}</p>
+    @endif
     <form action="{{ route('alternatives.store') }}" method="POST" class="border p-5 m-auto mx-auto max-w-md space-y-4">
         @csrf
 
