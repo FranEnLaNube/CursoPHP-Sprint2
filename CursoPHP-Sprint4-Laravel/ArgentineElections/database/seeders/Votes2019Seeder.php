@@ -1,0 +1,238 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\Vote;
+
+class Votes2019Seeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $votesData = [
+            // CABA
+            ['election_id' => 10, 'province_id' => 1, 'alternative_id' => 1, 'quantity' => 719655],
+            ['election_id' => 10, 'province_id' => 1, 'alternative_id' => 2, 'quantity' => 1068134],
+            ['election_id' => 10, 'province_id' => 1, 'alternative_id' => 3, 'quantity' => 130475],
+            ['election_id' => 10, 'province_id' => 1, 'alternative_id' => 4, 'quantity' => 59066],
+            ['election_id' => 10, 'province_id' => 1, 'alternative_id' => 5, 'quantity' => 13863],
+            ['election_id' => 10, 'province_id' => 1, 'alternative_id' => 6, 'quantity' => 38013],
+            ['election_id' => 10, 'province_id' => 1, 'alternative_id' => 7, 'quantity' => 31085],
+            ['election_id' => 10, 'province_id' => 1, 'alternative_id' => 8, 'quantity' => 15143],
+            // Buenos Aires
+            ['election_id' => 10, 'province_id' => 2, 'alternative_id' => 1, 'quantity' => 5294879],
+            ['election_id' => 10, 'province_id' => 2, 'alternative_id' => 2, 'quantity' => 3640552],
+            ['election_id' => 10, 'province_id' => 2, 'alternative_id' => 3, 'quantity' => 638990],
+            ['election_id' => 10, 'province_id' => 2, 'alternative_id' => 4, 'quantity' => 273495],
+            ['election_id' => 10, 'province_id' => 2, 'alternative_id' => 5, 'quantity' => 150067],
+            ['election_id' => 10, 'province_id' => 2, 'alternative_id' => 6, 'quantity' => 145743],
+            ['election_id' => 10, 'province_id' => 2, 'alternative_id' => 7, 'quantity' => 155421],
+            ['election_id' => 10, 'province_id' => 2, 'alternative_id' => 8, 'quantity' => 75346],
+            // Catamarca
+            ['election_id' => 10, 'province_id' => 3, 'alternative_id' => 1, 'quantity' => 132590],
+            ['election_id' => 10, 'province_id' => 3, 'alternative_id' => 2, 'quantity' => 79568],
+            ['election_id' => 10, 'province_id' => 3, 'alternative_id' => 3, 'quantity' => 13197],
+            ['election_id' => 10, 'province_id' => 3, 'alternative_id' => 4, 'quantity' => 3508],
+            ['election_id' => 10, 'province_id' => 3, 'alternative_id' => 5, 'quantity' => 2136],
+            ['election_id' => 10, 'province_id' => 3, 'alternative_id' => 6, 'quantity' => 3011],
+            ['election_id' => 10, 'province_id' => 3, 'alternative_id' => 7, 'quantity' => 23100],
+            ['election_id' => 10, 'province_id' => 3, 'alternative_id' => 8, 'quantity' => 1841],
+            // Córdoba
+            ['election_id' => 10, 'province_id' => 4, 'alternative_id' => 1, 'quantity' => 666445],
+            ['election_id' => 10, 'province_id' => 4, 'alternative_id' => 2, 'quantity' => 1394104],
+            ['election_id' => 10, 'province_id' => 4, 'alternative_id' => 3, 'quantity' => 113734],
+            ['election_id' => 10, 'province_id' => 4, 'alternative_id' => 4, 'quantity' => 37612],
+            ['election_id' => 10, 'province_id' => 4, 'alternative_id' => 5, 'quantity' => 31869],
+            ['election_id' => 10, 'province_id' => 4, 'alternative_id' => 6, 'quantity' => 30213],
+            ['election_id' => 10, 'province_id' => 4, 'alternative_id' => 7, 'quantity' => 42753],
+            ['election_id' => 10, 'province_id' => 4, 'alternative_id' => 8, 'quantity' => 25736],
+            // Corrientes
+            ['election_id' => 10, 'province_id' => 5, 'alternative_id' => 1, 'quantity' => 354968],
+            ['election_id' => 10, 'province_id' => 5, 'alternative_id' => 2, 'quantity' => 290690],
+            ['election_id' => 10, 'province_id' => 5, 'alternative_id' => 3, 'quantity' => 21658],
+            ['election_id' => 10, 'province_id' => 5, 'alternative_id' => 4, 'quantity' => 6522],
+            ['election_id' => 10, 'province_id' => 5, 'alternative_id' => 5, 'quantity' => 12515],
+            ['election_id' => 10, 'province_id' => 5, 'alternative_id' => 6, 'quantity' => 7044],
+            ['election_id' => 10, 'province_id' => 5, 'alternative_id' => 7, 'quantity' => 7062],
+            ['election_id' => 10, 'province_id' => 5, 'alternative_id' => 8, 'quantity' => 6009],
+            // Chaco
+            ['election_id' => 10, 'province_id' => 6, 'alternative_id' => 1, 'quantity' => 404758],
+            ['election_id' => 10, 'province_id' => 6, 'alternative_id' => 2, 'quantity' => 258432],
+            ['election_id' => 10, 'province_id' => 6, 'alternative_id' => 3, 'quantity' => 27636],
+            ['election_id' => 10, 'province_id' => 6, 'alternative_id' => 4, 'quantity' => 6986],
+            ['election_id' => 10, 'province_id' => 6, 'alternative_id' => 5, 'quantity' => 19617],
+            ['election_id' => 10, 'province_id' => 6, 'alternative_id' => 6, 'quantity' => 7856],
+            ['election_id' => 10, 'province_id' => 6, 'alternative_id' => 7, 'quantity' => 6836],
+            ['election_id' => 10, 'province_id' => 6, 'alternative_id' => 8, 'quantity' => 4534],
+            // Chubut
+            ['election_id' => 10, 'province_id' => 7, 'alternative_id' => 1, 'quantity' => 174726],
+            ['election_id' => 10, 'province_id' => 7, 'alternative_id' => 2, 'quantity' => 97837],
+            ['election_id' => 10, 'province_id' => 7, 'alternative_id' => 3, 'quantity' => 25357],
+            ['election_id' => 10, 'province_id' => 7, 'alternative_id' => 4, 'quantity' => 13117],
+            ['election_id' => 10, 'province_id' => 7, 'alternative_id' => 5, 'quantity' => 14253],
+            ['election_id' => 10, 'province_id' => 7, 'alternative_id' => 6, 'quantity' => 8029],
+            ['election_id' => 10, 'province_id' => 7, 'alternative_id' => 7, 'quantity' => 8384],
+            ['election_id' => 10, 'province_id' => 7, 'alternative_id' => 8, 'quantity' => 5864],
+            // Entre Ríos
+            ['election_id' => 10, 'province_id' => 8, 'alternative_id' => 1, 'quantity' => 390587],
+            ['election_id' => 10, 'province_id' => 8, 'alternative_id' => 2, 'quantity' => 391495],
+            ['election_id' => 10, 'province_id' => 8, 'alternative_id' => 3, 'quantity' => 55030],
+            ['election_id' => 10, 'province_id' => 8, 'alternative_id' => 4, 'quantity' => 14504],
+            ['election_id' => 10, 'province_id' => 8, 'alternative_id' => 5, 'quantity' => 14647],
+            ['election_id' => 10, 'province_id' => 8, 'alternative_id' => 6, 'quantity' => 14111],
+            ['election_id' => 10, 'province_id' => 8, 'alternative_id' => 7, 'quantity' => 6640],
+            ['election_id' => 10, 'province_id' => 8, 'alternative_id' => 8, 'quantity' => 7945],
+            // Formosa
+            ['election_id' => 10, 'province_id' => 9, 'alternative_id' => 1, 'quantity' => 229774],
+            ['election_id' => 10, 'province_id' => 9, 'alternative_id' => 2, 'quantity' => 100280],
+            ['election_id' => 10, 'province_id' => 9, 'alternative_id' => 3, 'quantity' => 11057],
+            ['election_id' => 10, 'province_id' => 9, 'alternative_id' => 4, 'quantity' => 3112],
+            ['election_id' => 10, 'province_id' => 9, 'alternative_id' => 5, 'quantity' => 5334],
+            ['election_id' => 10, 'province_id' => 9, 'alternative_id' => 6, 'quantity' => 2797],
+            ['election_id' => 10, 'province_id' => 9, 'alternative_id' => 7, 'quantity' => 2749],
+            ['election_id' => 10, 'province_id' => 9, 'alternative_id' => 8, 'quantity' => 2388],
+            // Jujuy
+            ['election_id' => 10, 'province_id' => 10, 'alternative_id' => 1, 'quantity' => 197119],
+            ['election_id' => 10, 'province_id' => 10, 'alternative_id' => 2, 'quantity' => 186104],
+            ['election_id' => 10, 'province_id' => 10, 'alternative_id' => 3, 'quantity' => 26835],
+            ['election_id' => 10, 'province_id' => 10, 'alternative_id' => 4, 'quantity' => 9241],
+            ['election_id' => 10, 'province_id' => 10, 'alternative_id' => 5, 'quantity' => 10512],
+            ['election_id' => 10, 'province_id' => 10, 'alternative_id' => 6, 'quantity' => 8617],
+            ['election_id' => 10, 'province_id' => 10, 'alternative_id' => 7, 'quantity' => 3665],
+            ['election_id' => 10, 'province_id' => 10, 'alternative_id' => 8, 'quantity' => 4951],
+            // La Pampa
+            ['election_id' => 10, 'province_id' => 11, 'alternative_id' => 1, 'quantity' => 115095],
+            ['election_id' => 10, 'province_id' => 11, 'alternative_id' => 2, 'quantity' => 86744],
+            ['election_id' => 10, 'province_id' => 11, 'alternative_id' => 3, 'quantity' => 15137],
+            ['election_id' => 10, 'province_id' => 11, 'alternative_id' => 4, 'quantity' => 4727],
+            ['election_id' => 10, 'province_id' => 11, 'alternative_id' => 5, 'quantity' => 4676],
+            ['election_id' => 10, 'province_id' => 11, 'alternative_id' => 6, 'quantity' => 3471],
+            ['election_id' => 10, 'province_id' => 11, 'alternative_id' => 7, 'quantity' => 1479],
+            ['election_id' => 10, 'province_id' => 11, 'alternative_id' => 8, 'quantity' => 2186],
+            // La Rioja
+            ['election_id' => 10, 'province_id' => 12, 'alternative_id' => 1, 'quantity' => 85779],
+            ['election_id' => 10, 'province_id' => 12, 'alternative_id' => 2, 'quantity' => 80462],
+            ['election_id' => 10, 'province_id' => 12, 'alternative_id' => 3, 'quantity' => 7844],
+            ['election_id' => 10, 'province_id' => 12, 'alternative_id' => 4, 'quantity' => 2127],
+            ['election_id' => 10, 'province_id' => 12, 'alternative_id' => 5, 'quantity' => 1987],
+            ['election_id' => 10, 'province_id' => 12, 'alternative_id' => 6, 'quantity' => 2801],
+            ['election_id' => 10, 'province_id' => 12, 'alternative_id' => 7, 'quantity' => 50804],
+            ['election_id' => 10, 'province_id' => 12, 'alternative_id' => 8, 'quantity' => 2160],
+            // Mendoza
+            ['election_id' => 10, 'province_id' => 13, 'alternative_id' => 1, 'quantity' => 435313],
+            ['election_id' => 10, 'province_id' => 13, 'alternative_id' => 2, 'quantity' => 576493],
+            ['election_id' => 10, 'province_id' => 13, 'alternative_id' => 3, 'quantity' => 75448],
+            ['election_id' => 10, 'province_id' => 13, 'alternative_id' => 4, 'quantity' => 26315],
+            ['election_id' => 10, 'province_id' => 13, 'alternative_id' => 5, 'quantity' => 22715],
+            ['election_id' => 10, 'province_id' => 13, 'alternative_id' => 6, 'quantity' => 14370],
+            ['election_id' => 10, 'province_id' => 13, 'alternative_id' => 7, 'quantity' => 8494],
+            ['election_id' => 10, 'province_id' => 13, 'alternative_id' => 8, 'quantity' => 15408],
+            // Misiones
+            ['election_id' => 10, 'province_id' => 14, 'alternative_id' => 1, 'quantity' => 417752],
+            ['election_id' => 10, 'province_id' => 14, 'alternative_id' => 2, 'quantity' => 245254],
+            ['election_id' => 10, 'province_id' => 14, 'alternative_id' => 3, 'quantity' => 24451],
+            ['election_id' => 10, 'province_id' => 14, 'alternative_id' => 4, 'quantity' => 6704],
+            ['election_id' => 10, 'province_id' => 14, 'alternative_id' => 5, 'quantity' => 21239],
+            ['election_id' => 10, 'province_id' => 14, 'alternative_id' => 6, 'quantity' => 8537],
+            ['election_id' => 10, 'province_id' => 14, 'alternative_id' => 7, 'quantity' => 12194],
+            ['election_id' => 10, 'province_id' => 14, 'alternative_id' => 8, 'quantity' => 6357],
+            // Neuquén
+            ['election_id' => 10, 'province_id' => 15, 'alternative_id' => 1, 'quantity' => 194195],
+            ['election_id' => 10, 'province_id' => 15, 'alternative_id' => 2, 'quantity' => 151939],
+            ['election_id' => 10, 'province_id' => 15, 'alternative_id' => 3, 'quantity' => 25628],
+            ['election_id' => 10, 'province_id' => 15, 'alternative_id' => 4, 'quantity' => 15199],
+            ['election_id' => 10, 'province_id' => 15, 'alternative_id' => 5, 'quantity' => 11743],
+            ['election_id' => 10, 'province_id' => 15, 'alternative_id' => 6, 'quantity' => 8167],
+            ['election_id' => 10, 'province_id' => 15, 'alternative_id' => 7, 'quantity' => 13277],
+            ['election_id' => 10, 'province_id' => 15, 'alternative_id' => 8, 'quantity' => 6741],
+            // Río Negro
+            ['election_id' => 10, 'province_id' => 16, 'alternative_id' => 1, 'quantity' => 247664],
+            ['election_id' => 10, 'province_id' => 16, 'alternative_id' => 2, 'quantity' => 123674],
+            ['election_id' => 10, 'province_id' => 16, 'alternative_id' => 3, 'quantity' => 27483],
+            ['election_id' => 10, 'province_id' => 16, 'alternative_id' => 4, 'quantity' => 11252],
+            ['election_id' => 10, 'province_id' => 16, 'alternative_id' => 5, 'quantity' => 14173],
+            ['election_id' => 10, 'province_id' => 16, 'alternative_id' => 6, 'quantity' => 8482],
+            ['election_id' => 10, 'province_id' => 16, 'alternative_id' => 7, 'quantity' => 13158],
+            ['election_id' => 10, 'province_id' => 16, 'alternative_id' => 8, 'quantity' => 6262],
+            // Salta
+            ['election_id' => 10, 'province_id' => 17, 'alternative_id' => 1, 'quantity' => 374369],
+            ['election_id' => 10, 'province_id' => 17, 'alternative_id' => 2, 'quantity' => 266406],
+            ['election_id' => 10, 'province_id' => 17, 'alternative_id' => 3, 'quantity' => 82358],
+            ['election_id' => 10, 'province_id' => 17, 'alternative_id' => 4, 'quantity' => 13625],
+            ['election_id' => 10, 'province_id' => 17, 'alternative_id' => 5, 'quantity' => 16635],
+            ['election_id' => 10, 'province_id' => 17, 'alternative_id' => 6, 'quantity' => 13378],
+            ['election_id' => 10, 'province_id' => 17, 'alternative_id' => 7, 'quantity' => 8868],
+            ['election_id' => 10, 'province_id' => 17, 'alternative_id' => 8, 'quantity' => 8099],
+            // San Juan
+            ['election_id' => 10, 'province_id' => 18, 'alternative_id' => 1, 'quantity' => 241960],
+            ['election_id' => 10, 'province_id' => 18, 'alternative_id' => 2, 'quantity' => 160449],
+            ['election_id' => 10, 'province_id' => 18, 'alternative_id' => 3, 'quantity' => 33004],
+            ['election_id' => 10, 'province_id' => 18, 'alternative_id' => 4, 'quantity' => 6928],
+            ['election_id' => 10, 'province_id' => 18, 'alternative_id' => 5, 'quantity' => 8388],
+            ['election_id' => 10, 'province_id' => 18, 'alternative_id' => 6, 'quantity' => 5759],
+            ['election_id' => 10, 'province_id' => 18, 'alternative_id' => 7, 'quantity' => 4217],
+            ['election_id' => 10, 'province_id' => 18, 'alternative_id' => 8, 'quantity' => 4124],
+            // San Luis
+            ['election_id' => 10, 'province_id' => 19, 'alternative_id' => 1, 'quantity' => 129118],
+            ['election_id' => 10, 'province_id' => 19, 'alternative_id' => 2, 'quantity' => 139479],
+            ['election_id' => 10, 'province_id' => 19, 'alternative_id' => 3, 'quantity' => 19954],
+            ['election_id' => 10, 'province_id' => 19, 'alternative_id' => 4, 'quantity' => 7171],
+            ['election_id' => 10, 'province_id' => 19, 'alternative_id' => 5, 'quantity' => 7683],
+            ['election_id' => 10, 'province_id' => 19, 'alternative_id' => 6, 'quantity' => 5354],
+            ['election_id' => 10, 'province_id' => 19, 'alternative_id' => 7, 'quantity' => 3957],
+            ['election_id' => 10, 'province_id' => 19, 'alternative_id' => 8, 'quantity' => 4119],
+            // Santa Cruz
+            ['election_id' => 10, 'province_id' => 20, 'alternative_id' => 1, 'quantity' => 108323],
+            ['election_id' => 10, 'province_id' => 20, 'alternative_id' => 2, 'quantity' => 51183],
+            ['election_id' => 10, 'province_id' => 20, 'alternative_id' => 3, 'quantity' => 9123],
+            ['election_id' => 10, 'province_id' => 20, 'alternative_id' => 4, 'quantity' => 6032],
+            ['election_id' => 10, 'province_id' => 20, 'alternative_id' => 5, 'quantity' => 5171],
+            ['election_id' => 10, 'province_id' => 20, 'alternative_id' => 6, 'quantity' => 1402],
+            ['election_id' => 10, 'province_id' => 20, 'alternative_id' => 7, 'quantity' => 5181],
+            ['election_id' => 10, 'province_id' => 20, 'alternative_id' => 8, 'quantity' => 2468],
+            // Santa Fe
+            ['election_id' => 10, 'province_id' => 21, 'alternative_id' => 1, 'quantity' => 9192],
+            ['election_id' => 10, 'province_id' => 21, 'alternative_id' => 2, 'quantity' => 937611],
+            ['election_id' => 10, 'province_id' => 21, 'alternative_id' => 3, 'quantity' => 193603],
+            ['election_id' => 10, 'province_id' => 21, 'alternative_id' => 4, 'quantity' => 30862],
+            ['election_id' => 10, 'province_id' => 21, 'alternative_id' => 5, 'quantity' => 33247],
+            ['election_id' => 10, 'province_id' => 21, 'alternative_id' => 6, 'quantity' => 40353],
+            ['election_id' => 10, 'province_id' => 21, 'alternative_id' => 7, 'quantity' => 14121],
+            ['election_id' => 10, 'province_id' => 21, 'alternative_id' => 8, 'quantity' => 29501],
+            // Santiago del Estero
+            ['election_id' => 10, 'province_id' => 22, 'alternative_id' => 1, 'quantity' => 451082],
+            ['election_id' => 10, 'province_id' => 22, 'alternative_id' => 2, 'quantity' => 110525],
+            ['election_id' => 10, 'province_id' => 22, 'alternative_id' => 3, 'quantity' => 19103],
+            ['election_id' => 10, 'province_id' => 22, 'alternative_id' => 4, 'quantity' => 5755],
+            ['election_id' => 10, 'province_id' => 22, 'alternative_id' => 5, 'quantity' => 9219],
+            ['election_id' => 10, 'province_id' => 22, 'alternative_id' => 6, 'quantity' => 5123],
+            ['election_id' => 10, 'province_id' => 22, 'alternative_id' => 7, 'quantity' => 6652],
+            ['election_id' => 10, 'province_id' => 22, 'alternative_id' => 8, 'quantity' => 3272],
+            // Tierra del Fuego
+            ['election_id' => 10, 'province_id' => 23, 'alternative_id' => 1, 'quantity' => 57887],
+            ['election_id' => 10, 'province_id' => 23, 'alternative_id' => 2, 'quantity' => 26529],
+            ['election_id' => 10, 'province_id' => 23, 'alternative_id' => 3, 'quantity' => 7785],
+            ['election_id' => 10, 'province_id' => 23, 'alternative_id' => 4, 'quantity' => 2760],
+            ['election_id' => 10, 'province_id' => 23, 'alternative_id' => 5, 'quantity' => 3925],
+            ['election_id' => 10, 'province_id' => 23, 'alternative_id' => 6, 'quantity' => 2803],
+            ['election_id' => 10, 'province_id' => 23, 'alternative_id' => 7, 'quantity' => 1340],
+            ['election_id' => 10, 'province_id' => 23, 'alternative_id' => 8, 'quantity' => 1868],
+            // Tucumán
+            ['election_id' => 10, 'province_id' => 24, 'alternative_id' => 1, 'quantity' => 591686],
+            ['election_id' => 10, 'province_id' => 24, 'alternative_id' => 2, 'quantity' => 347642],
+            ['election_id' => 10, 'province_id' => 24, 'alternative_id' => 3, 'quantity' => 42432],
+            ['election_id' => 10, 'province_id' => 24, 'alternative_id' => 4, 'quantity' => 12598],
+            ['election_id' => 10, 'province_id' => 24, 'alternative_id' => 5, 'quantity' => 21241],
+            ['election_id' => 10, 'province_id' => 24, 'alternative_id' => 6, 'quantity' => 8773],
+            ['election_id' => 10, 'province_id' => 24, 'alternative_id' => 7, 'quantity' => 10066],
+            ['election_id' => 10, 'province_id' => 24, 'alternative_id' => 8, 'quantity' => 7735],
+        ];
+        foreach ($votesData as $voteData) {
+            Vote::create($voteData);
+        }
+    }
+}
