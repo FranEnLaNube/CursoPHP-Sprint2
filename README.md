@@ -1,43 +1,10 @@
-# Índice de ejercicios
-## Sprint1
-### Tema 0
-GitHub
-### Tema 1
-Maquetar
-### Tema 2
-PHP básico
-#### Ejer 1
-Tipos de datos y constantes
-#### Ejer 2
-Funciones de largo de strings con strlen(), pasar a mayus con srttoupper(acaElString) y mas
-#### Ejer 3
-Operaciones con variables y switch case en funcion calculadora()
-#### Ejer 4
-Funcion counter() y range($inicio, $fin, $pasos)
-#### Ejer 5
-Clasificador de notas con if else
-#### Ejer 6
-Funcion isBitten() que devuelve true o false y usa rand(0,1) y operador ternario
-### Tema 3
-Arrays
-#### Ejer1
-Crear un array y recorrerlo con for
-#### Ejer 2
-Operaciones con arrays como
-- count($array)
-- unset($array[posicionAeliminar])
-- Crear con metodo de corchete 
-- foreach para ordenar un array
-#### Ejer 3
-function checker($words, $char) para buscar un caracter en un array
-#### Ejer 4
-Array asociativo
-### Tema 4
-POO, clase Shape
-### Tema 5
-POO 2
-### Tema 6
-Formulario
-### Tema 7 
-BBDD
-
+# Sprint 2. Bases de dades
+Sense persistència, no tindríem dades. És gràcies a les bases de dades que podem conservar-les. Aquí et presentarem dos dels tipus de bases de dades més populars, SQL i MongoDB.
+## Objectiu general
+Necessitem persistir les dades... Per a això, l'objectiu bàsic seria aprendre a modelar bases de dades i a programar-les.
+## Objectius específics
+En aquest sprint aprofundirem en Bases de dades Relacionals amb MySQL i també en Bases de dades No SQL, amb MongoDB.
+Necessitarem aprendre a generar els scripts de creació i també saber fer consultes per a accedir a les dades.
+## TEMES - SPRINT 2
+1. MySQL
+2. MongoDB
