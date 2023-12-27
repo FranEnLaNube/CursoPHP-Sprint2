@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "64db9543b65156bd1cacf269"
+  },
+  "name": "product_2",
+  "type": "burger",
+  "description": "Description_2",
+  "image": "URL_2",
+  "price": 2.5
+},
+{
+  "_id": {
+    "$oid": "64db93cab65156bd1cacf267"
+  },
+  "name": "product_1",
+  "type": "pizza",
+  "description": "description_1",
+  "image": "URL_1",
+  "price": 1.5,
+  "pizza_category": {
+    "category_id": "pizza_category_id",
+    "name": "pizza_category_name"
+  }
+},
+{
+  "_id": {
+    "$oid": "64db9e12b65156bd1cacf276"
+  },
+  "name": "product_3",
+  "type": "drink",
+  "description": "Description_3",
+  "image": "URL_3",
+  "price": 3.5
+}]
