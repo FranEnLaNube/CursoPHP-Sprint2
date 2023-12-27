@@ -4,7 +4,7 @@ USE universidad;
 	# Uso la clasificación que tiene en persona entre alumno o profesor, ordeno de forma ascendente.
 SELECT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre' FROM persona WHERE tipo = 'alumno' ORDER BY Apellido1, Apellido2, Nombre; 
 
-# 2. Esbrina el nom i els dos cognoms dels/les alumnes que no han donat d'alta el seu número de telèfon en la base de dades.
+# 2. Esbriba el nom i els dos cognoms dels/les alumnes que no han donat d'alta el seu número de telèfon en la base de dades.
 	# Lo mismo pero sin ordenar, buscando el campo nulo para teléfono.
 SELECT apellido1 'Primer apellido', apellido2 'Segundo apellido', nombre 'Nombre' FROM persona WHERE tipo = 'alumno' AND telefono IS NULL;
 
@@ -85,38 +85,10 @@ SELECT gr.nombre 'Grado', asi.tipo 'Tipo asignatura', SUM(asi.creditos) 'Crédit
 SELECT ce.anyo_inicio 'Año inicio', COUNT(*) 'Alumnos matriculados' FROM alumno_se_matricula_asignatura asma JOIN curso_escolar ce ON asma.id_curso_escolar = ce.id GROUP BY ce.anyo_inicio;
 
 # 9. Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. El llistat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures.
-SELECT 
-    asi.id 'id',
-    asi.nombre 'Asignatura',
-    pe.apellido1 'Primer apellido',
-    pe.apellido2 'Segundo apellido',
-    pe.nombre 'Nombre',
-    COUNT(asi.nombre) 'Cantidad de asignaturas'
-FROM
-    persona pe
-        LEFT JOIN
-    profesor pf ON pf.id_profesor = pe.id
-        LEFT JOIN
-    asignatura asi ON asi.id_profesor = pf.id_profesor
-WHERE
-    pe.tipo = 'profesor'
-GROUP BY pf.id_profesor
-ORDER BY ;
+SELECT pe.id 'id', pe.nombre 'Nombre', pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', COUNT(asi.id) 'Cantidad de asignaturas' FROM persona pe LEFT JOIN profesor pf ON pf.id_profesor = pe.id LEFT JOIN asignatura asi ON asi.id_profesor = pf.id_profesor WHERE pe.tipo = 'profesor' GROUP BY pe.id ORDER BY asi.id DESC;
 
 # 10. Retorna totes les dades de l'alumne més jove.
 SELECT * FROM persona WHERE tipo = 'alumno' ORDER BY fecha_nacimiento DESC LIMIT 1;
 
 # 11. Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura.
-SELECT 
-    pe.apellido1 'Primer apellido',
-    pe.apellido2 'Segundo apellido',
-    pe.nombre 'Nombre'
-FROM
-    persona pe
-        LEFT JOIN
-    profesor pf ON pe.id = pf.id_profesor
-        LEFT JOIN
-    asignatura asi ON asi.id_profesor = pf.id_profesor
-WHERE
-    pe.tipo = 'profesor'
-        AND asi.id_profesor IS NULL;
+SELECT pe.apellido1 'Primer apellido', pe.apellido2 'Segundo apellido', pe.nombre 'Nombre' FROM persona pe LEFT JOIN profesor pf ON pe.id = pf.id_profesor LEFT JOIN asignatura asi ON asi.id_profesor = pf.id_profesor WHERE pe.tipo = 'profesor' AND asi.id_profesor IS NULL;
